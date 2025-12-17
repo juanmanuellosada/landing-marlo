@@ -12,7 +12,7 @@ function App() {
       {/* Background Logo */}
       <div className="fixed inset-0 z-0 pointer-events-none flex items-center justify-center">
         <img 
-          src="/images/logo-m.png" 
+          src="./images/logo-m.png" 
           alt="" 
           className="w-[85%] h-[85%] object-contain opacity-10 drop-shadow-2xl mix-blend-overlay contrast-125 brightness-110" 
         />

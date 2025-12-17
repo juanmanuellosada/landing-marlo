@@ -15,7 +15,7 @@ const About = () => {
       </div>
       <div className="flex-1">
         <div className="rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500">
-          <img src="/images/foto-camara.jpg" alt="Workspace" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500" />
+          <img src="./images/foto-camara.jpg" alt="Workspace" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500" />
         </div>
       </div>
     </section>

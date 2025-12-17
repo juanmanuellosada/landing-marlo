@@ -5,7 +5,7 @@ const Hero = () => {
     { name: 'SOBRE MÍ', href: '#about' },
     { name: 'TIENDA', href: 'https://www.marlocomunica.com.ar/' },
     { name: 'CURSOS', href: 'https://www.marlocomunica.com.ar/cursos-manuales/' },
-    { name: 'CONTACTO', href: '#contact' },
+    { name: 'CONTACTO', href: 'https://wa.me/5491136178552' },
     { name: 'PROYECTOS', href: 'https://www.behance.net/marlocomunica' },
   ];
 
@@ -13,7 +13,7 @@ const Hero = () => {
     <section className="min-h-screen flex flex-col md:flex-row items-center justify-center p-8 md:p-20 gap-10 md:gap-20 relative overflow-hidden font-garet">
       <div className="flex flex-col items-center gap-6 z-10">
         <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-xl relative">
-          <img src="/images/foto-perfil.jpg" alt="Mariana Losada" className="w-full h-full object-cover object-center scale-110" />
+          <img src="./images/foto-perfil.jpg" alt="Mariana Losada" className="w-full h-full object-cover object-center scale-110" />
         </div>
         <div className="flex gap-6 text-2xl">
           <a href="https://instagram.com/marlocomunica" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors"><FaInstagram /></a>
@@ -34,6 +34,8 @@ const Hero = () => {
             <a 
               key={link.name} 
               href={link.href}
+              target={link.href.startsWith('http') ? '_blank' : '_self'}
+              rel={link.href.startsWith('http') ? 'noopener noreferrer' : ''}
               className="border-2 border-white rounded-lg py-3 px-6 text-center font-bold tracking-wider hover:bg-white hover:text-brand-orange transition-all duration-300"
             >
               {link.name}
