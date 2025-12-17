@@ -5,7 +5,7 @@ const Hero = () => {
     { name: 'SOBRE MÍ', href: '#about' },
     { name: 'TIENDA', href: 'https://www.marlocomunica.com.ar/' },
     { name: 'CURSOS', href: 'https://www.marlocomunica.com.ar/cursos-manuales/' },
-    { name: 'CONTACTO', href: 'https://wa.me/5491136178552' },
+    { name: 'CONTACTO', href: '#contact' },
     { name: 'PROYECTOS', href: 'https://www.behance.net/marlocomunica' },
   ];
 
