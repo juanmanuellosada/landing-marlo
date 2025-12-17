@@ -17,7 +17,7 @@ const Hero = () => {
         </div>
         <div className="flex gap-6 text-2xl">
           <a href="https://instagram.com/marlocomunica" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors"><FaInstagram /></a>
-          <a href="#" className="hover:text-white/80 transition-colors"><FaFacebookF /></a>
+          <a href="https://www.facebook.com/comunicamarlo/" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors"><FaFacebookF /></a>
           <a href="https://www.tiktok.com/@marlocomunica.tk" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors"><FaTiktok /></a>
           <a href="https://ar.pinterest.com/comunicamarlo/" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors"><FaPinterestP /></a>
         </div>
