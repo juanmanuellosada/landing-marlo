@@ -3,7 +3,7 @@ import { FaInstagram, FaFacebookF, FaTiktok, FaPinterestP } from 'react-icons/fa
 const Hero = () => {
   const links = [
     { name: 'SOBRE MÍ', href: '#about' },
-    { name: 'TIENDA', href: 'https://www.marlocomunica.com.ar/' },
+    { name: 'TIENDA', href: 'https://marlocomunica.mitiendanube.com/' },
     { name: 'CURSOS', href: 'https://marlocomunica.mitiendanube.com/cursos-manuales' },
     { name: 'CONTACTO', href: '#contact' },
     { name: 'PROYECTOS', href: 'https://www.behance.net/marlocomunica' },
