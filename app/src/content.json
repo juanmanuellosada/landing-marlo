@@ -1,0 +1,126 @@
+{
+  "hero": {
+    "name": "Mariana Losada",
+    "role": "CEO MARLOCOMUNICA",
+    "links": [
+      {
+        "name": "SOBRE MÍ",
+        "href": "#about"
+      },
+      {
+        "name": "TIENDA",
+        "href": "https://marlocomunica.mitiendanube.com/"
+      },
+      {
+        "name": "CURSOS",
+        "href": "https://marlocomunica.mitiendanube.com/cursos-manuales"
+      },
+      {
+        "name": "CONTACTO",
+        "href": "#contact"
+      },
+      {
+        "name": "PROYECTOS",
+        "href": "https://www.behance.net/marlocomunica"
+      }
+    ],
+    "socialMedia": {
+      "instagram": "https://instagram.com/marlocomunica",
+      "facebook": "https://www.facebook.com/comunicamarlo/",
+      "tiktok": "https://www.tiktok.com/@marlocomunica.tk",
+      "pinterest": "https://ar.pinterest.com/comunicamarlo/"
+    }
+  },
+  "about": {
+    "title": "Mariana Losada, 29 años",
+    "description": "Especialista en marketing digital, slow marketing, community management y trabajo estratégico en redes sociales.",
+    "subtitle": "Combino experiencia en gestión de redes, creación de contenido y campañas publicitarias (Ads) para potenciar marcas de manera auténtica y sostenible.",
+    "content": "Trabajo de forma 100% personalizada en cada negocio, entendiendo sus objetivos para diseñar estrategias a medida, con una mirada fresca, visual y orientada a resultados."
+  },
+  "philosophy": {
+    "mainTitle": "En nuestro estudio, tenemos un enfoque diferente",
+    "intro": "En un mundo donde todo parece ir demasiado rápido, trabajamos con Slow Marketing Method, invitandote a hacer las cosas de manera diferente.",
+    "description": "En lugar de perseguir métricas vacías y resultados efímeros, creamos estrategias de redes sociales que generan conexiones genuinas, engagement real y crecimiento sostenible.",
+    "highlights": [
+      "+Calma",
+      "-Estrés",
+      "+Resultados"
+    ]
+  },
+  "services": [
+    {
+      "title": "BRANDING & IDENTIDAD VISUAL",
+      "description": "El branding es la experiencia que queres hacer vivir a todo aquel que llega hasta tu proyecto. Es el responsable de conseguir la conexión emocional entre el cliente y la marca.\nNos encargamos de construir tu marca desde cero, definir el cliente ideal, su personalidad, y lo que busca transmitir.\nEs la esencia de tu marca, lo no tangible.\n\nTrabajamos la identidad visual sobre eso, que será la forma en lo que todo eso se refleje."
+    },
+    {
+      "title": "DISEÑO GRÁFICO & PIEZAS DIGITALES",
+      "description": "Nos encargamos de diseñar piezas para tu marca, desde el logo o identidad visual, hasta la papelería o flyers para redes sociales."
+    },
+    {
+      "title": "ADS MANAGER | PUBLICIDAD EN INSTAGRAM & FACEBOOK ADS",
+      "description": "Si buscas una forma de aumentar la visibilidad y atraer nuevos clientes en tu negocio, el servicio de gestión en MetaAds busca alcanzar tus objetivos.\nCreamos campañas publicitarias en redes sociales con el fin de promocionar tus productos o servicios."
+    },
+    {
+      "title": "GESTIÓN DE REDES | COMMUNITY SOCIAL MEDIA MANAGEMENT",
+      "description": "Si te cuesta mantener una presencia constante en redes sociales, este servicio es para vos.\nNos basamos en la gestión estrategica de tu cuenta, desde lo interno hasta el diseño y publicación de las piezas.\nEl objetivo es aumentar la visibilidad, la interaccion y fidelidad de tus seguidores y clientes.\nNuestro servicio integral incluye análisis de tu marca, cliente ideal, redacción, diseño y publicación del contenido. Nos especializamos en Instagram, Facebook, y Tiktok, para conectar organicamente con tu público."
+    }
+  ],
+  "whyUs": {
+    "title": "¿Por qué elegir Slow Marketing para tu marca?",
+    "reasons": [
+      {
+        "icon": "✅",
+        "title": "Autenticidad",
+        "text": "Contamos tu historia de manera natural, sin caer en tácticas invasivas."
+      },
+      {
+        "icon": "🔒",
+        "title": "Compromiso real",
+        "text": "Priorizamos la comunidad sobre los números, fomentando interacciones valiosas."
+      },
+      {
+        "icon": "😎",
+        "title": "Estrategia a largo plazo",
+        "text": "No buscamos viralidad momentánea, sino un crecimiento sólido y duradero."
+      },
+      {
+        "icon": "✅",
+        "title": "Menos estrés, más resultados",
+        "text": "Te sacamos del estres y ansiedad de las redes, nosotros nos encargamos de gestionar tu presencia digital con coherencia y tranquilidad."
+      }
+    ],
+    "description": [
+      "Si queres que tu marca crezca de forma auténtica y sostenible, hablemos. Contanos sobre tu marca o negocio.",
+      "Podemos personalizar la propuesta para que tu estrategia y contenidos sean únicos.",
+      "Te ayudamos a crear una estrategia de redes alineada con tu esencia y objetivos."
+    ],
+    "ctaText": "Si estas listo para despegar en redes de forma diferente, contactanos!"
+  },
+  "strategies": {
+    "title": "Estrategias",
+    "items": [
+      "Creación de contenido atractivo y relevante: Se desarrollará un calendario de contenidos editorial de publicaciones semanales en Instagram y facebook o Tiktok. Incluida la redacción y diseño profesional.",
+      "Gestión activa de las comunidades: Se responderá a comentarios y se fomentará la interacción entre los miembros de la comunidad con dinámicas interactivas.",
+      "Implementación de campañas de publicidad en redes sociales o colaboraciones: Se crearán y gestionarán campañas publicitarias o colaboraciones para atraer nuevos seguidores y aumentar el alcance de las publicaciones."
+    ]
+  },
+  "footer": {
+    "links": [
+      {
+        "image": "./images/tiendanube.png",
+        "text": "USÁ MI LINK DE AFILIADO PARA UN 25%OFF EN TU PRIMER MES",
+        "url": "https://www.tiendanube.com/partners/Marlocomunica"
+      },
+      {
+        "image": "./images/canva-logo.avif",
+        "text": "APRENDE A DISENAR CON CANVA HACIENDO CLICK ACA",
+        "url": "https://marlocomunica.mitiendanube.com/productos/curso-ebook-canva-para-principiantes/"
+      },
+      {
+        "icon": "whatsapp",
+        "text": "RECIBI ASESORAMIENTO PERSONALIZADO",
+        "url": "https://wa.me/5491136178552"
+      }
+    ]
+  }
+}
