@@ -5,6 +5,40 @@ const Editor = () => {
   const [content, setContent] = useState(contentData);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
+  const [timeRemaining, setTimeRemaining] = useState('');
+
+  // Calcular tiempo restante de sesión
+  useEffect(() => {
+    const updateTimeRemaining = () => {
+      const lastActivity = parseInt(localStorage.getItem('lastActivity') || '0');
+      const sessionStart = parseInt(localStorage.getItem('sessionStart') || '0');
+      const now = Date.now();
+      
+      const INACTIVITY_TIMEOUT = 30 * 60 * 1000; // 30 minutos
+      const ABSOLUTE_TIMEOUT = 2 * 60 * 60 * 1000; // 2 horas
+      
+      const inactiveTime = now - lastActivity;
+      const totalTime = now - sessionStart;
+      
+      const remainingInactivity = INACTIVITY_TIMEOUT - inactiveTime;
+      const remainingTotal = ABSOLUTE_TIMEOUT - totalTime;
+      
+      const remaining = Math.min(remainingInactivity, remainingTotal);
+      
+      if (remaining > 0) {
+        const minutes = Math.floor(remaining / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+        setTimeRemaining(`${minutes}:${seconds.toString().padStart(2, '0')}`);
+      } else {
+        setTimeRemaining('Expirada');
+      }
+    };
+
+    updateTimeRemaining();
+    const interval = setInterval(updateTimeRemaining, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleChange = (path, value) => {
     const keys = path.split('.');
@@ -72,7 +106,12 @@ const Editor = () => {
       <div className="max-w-6xl mx-auto">
         <div className="bg-white rounded-lg shadow-lg p-8">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">Editor de Contenidos</h1>
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800">Editor de Contenidos</h1>
+              <p className="text-sm text-gray-500 mt-1">
+                Sesión expira en: <span className="font-mono font-semibold">{timeRemaining}</span>
+              </p>
+            </div>
             <button
               onClick={handleLogout}
               className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"

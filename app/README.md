@@ -4,38 +4,37 @@ This project is a landing page built with React, Vite, and Tailwind CSS.
 
 ## Project Structure
 
-- src/components: Contains the React components for each section of the landing page.
-- src/App.jsx: Main application component.
-- src/index.css: Global styles and Tailwind CSS configuration.
-- public/images: Contains the images used in the project.
+- `src/components`: Contains the React components for each section of the landing page.
+- `src/App.jsx`: Main application component.
+- `src/index.css`: Global styles and Tailwind CSS configuration.
+- `public/images`: Contains the images used in the project.
 
 ## Getting Started
 
-1.  Install dependencies:
-    `ash
-    npm install
-    ``r
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-2.  Start the development server:
-    `ash
-    npm run dev
-    ``r
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-3.  Build for production:
-    `ash
-    npm run build
-    ``r
+3. Build for production:
+   ```bash
+   npm run build
+   ```
 
-## Deployment to GitHub Pages
+## Deployment to Vercel
 
-To deploy to GitHub Pages:
+This project is deployed on Vercel. Any push to the main branch will automatically trigger a new deployment.
 
-1.  Update ite.config.js with the base URL of your repository (if it's not a user site).
-    `javascript
-    export default defineConfig({
-      base: '/repo-name/', // Replace with your repository name
-      plugins: [react(), tailwindcss()],
-    })
-    ``r
-2.  Run the build command.
-3.  Deploy the dist folder.
+### Editor de Contenidos
+
+- Access the content editor at: `/editor`
+- Requires authentication (configured via environment variables)
+- Content changes are committed directly to GitHub
+- Session expires after 30 minutes of inactivity or 2 hours maximum
+
+For detailed deployment instructions, see `DEPLOY-VERCEL.md` and `QUICKSTART-VERCEL.md`.
