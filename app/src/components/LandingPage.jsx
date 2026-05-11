@@ -24,7 +24,7 @@ const LandingPage = () => {
       {/* Content */}
       <div className="relative z-10">
         <Hero />
-        <Marquee text="KIT EMPRENDEDORES & FREELANCERS ✵" className="mt-8 sm:-mt-24 md:-mt-32" />
+        <Marquee text="KIT EMPRENDEDORES & FREELANCERS ✵" className="mt-20 sm:-mt-24 md:-mt-32" />
         <Cupon />
         <About />
         <Philosophy />
