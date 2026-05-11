@@ -4,7 +4,7 @@ import Marquee from './Marquee';
 const Services = () => {
   return (
     <>
-      <Marquee text="NUESTROS SERVICIOS ✵" />
+      <Marquee text="✵ NUESTROS SERVICIOS ✵" />
       <section className="py-20 px-8 md:px-20 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         {content.services.slice(0, 1).map((service, index) => (
