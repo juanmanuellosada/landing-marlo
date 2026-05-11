@@ -1,9 +1,12 @@
 import content from '../content.json';
+import Marquee from './Marquee';
 
 const Services = () => {
   return (
-    <section className="py-20 px-8 md:px-20 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+    <>
+      <Marquee text="NUESTROS SERVICIOS ✵" />
+      <section className="py-20 px-8 md:px-20 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         {content.services.slice(0, 1).map((service, index) => (
           <div key={index} className="space-y-4">
             <h3 className="text-2xl font-neulis font-bold text-center min-h-[64px] flex items-center justify-center">{service.title}</h3>
@@ -26,8 +29,9 @@ const Services = () => {
             <p className="text-sm leading-relaxed font-garet">{service.description}</p>
           </div>
         ))}
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -125,7 +125,7 @@ const Cupon = () => {
   const href = cupon.href || 'https://marlocomunica.mitiendanube.com/';
 
   return (
-    <section className="px-4 sm:px-8 md:px-20 -mt-16 sm:-mt-24 md:-mt-32 pb-12">
+    <section className="px-4 sm:px-8 md:px-20 pt-12 pb-12">
       <a
         href={href}
         target="_blank"

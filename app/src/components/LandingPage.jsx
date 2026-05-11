@@ -7,6 +7,7 @@ import Services from './Services';
 import WhyUs from './WhyUs';
 import Strategies from './Strategies';
 import Footer from './Footer';
+import Marquee from './Marquee';
 
 const LandingPage = () => {
   return (
@@ -23,6 +24,7 @@ const LandingPage = () => {
       {/* Content */}
       <div className="relative z-10">
         <Hero />
+        <Marquee text="KIT EMPRENDEDORES & FREELANCERS ✵" className="-mt-16 sm:-mt-24 md:-mt-32" />
         <Cupon />
         <About />
         <Philosophy />
