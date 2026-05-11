@@ -108,6 +108,21 @@
       "Implementación de campañas de publicidad en redes sociales o colaboraciones: Se crearán y gestionarán campañas publicitarias o colaboraciones para atraer nuevos seguidores y aumentar el alcance de las publicaciones."
     ]
   },
+  "cupon": {
+    "enabled": true,
+    "ribbon": "40% OFF",
+    "title": "HOT SALE",
+    "couponLine": "USA EL CUPON #MARLOSALE",
+    "subtitle": "ES TU MOMENTO PARA MEJORAR TU MARCA",
+    "badgeDiscount": "-40%",
+    "badgeText": "DE DESCUENTO EN CUALQUIER KIT",
+    "href": "https://marlocomunica.mitiendanube.com/ebooks/kits-freelancers/",
+    "bgImage": "./images/cupon-bg.jpg",
+    "popup": {
+      "enabled": true,
+      "delayMs": 800
+    }
+  },
   "footer": {
     "links": [
       {

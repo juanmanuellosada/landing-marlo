@@ -1,4 +1,6 @@
 import Hero from './Hero';
+import Cupon from './Cupon';
+import CuponPopup from './CuponPopup';
 import About from './About';
 import Philosophy from './Philosophy';
 import Services from './Services';
@@ -21,6 +23,7 @@ const LandingPage = () => {
       {/* Content */}
       <div className="relative z-10">
         <Hero />
+        <Cupon />
         <About />
         <Philosophy />
         <Services />
@@ -28,6 +31,8 @@ const LandingPage = () => {
         <Strategies />
         <Footer />
       </div>
+
+      <CuponPopup />
     </div>
   );
 };
