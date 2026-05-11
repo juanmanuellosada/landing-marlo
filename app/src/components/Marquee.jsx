@@ -5,7 +5,7 @@ const Marquee = ({ text, copies = 8, className = '' }) => {
         {[...Array(copies)].map((_, i) => (
           <span
             key={i}
-            className="text-2xl font-neulis font-bold uppercase text-white whitespace-nowrap px-8"
+            className="text-2xl font-neulis font-bold uppercase text-white whitespace-nowrap px-3"
           >
             {text}
           </span>
