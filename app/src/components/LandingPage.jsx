@@ -1,6 +1,7 @@
 import Hero from './Hero';
 import Cupon from './Cupon';
 import CuponPopup from './CuponPopup';
+import KitsEditables from './KitsEditables';
 import About from './About';
 import Philosophy from './Philosophy';
 import Services from './Services';
@@ -26,6 +27,7 @@ const LandingPage = () => {
         <Hero />
         <Marquee text="KIT EMPRENDEDORES & FREELANCERS ✵" className="mt-20 md:-mt-32" />
         <Cupon />
+        <KitsEditables />
         <About />
         <Philosophy />
         <Services />

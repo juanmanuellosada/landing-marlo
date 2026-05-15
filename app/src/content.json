@@ -123,6 +123,24 @@
       "delayMs": 800
     }
   },
+  "kitsEditables": {
+    "title": "KITS EDITABLES",
+    "subtitle": "Plantillas listas para editar y vender",
+    "kits": [
+      {
+        "image": "./images/kit-organizacion-freelancer.png",
+        "alt": "Kit Organización Freelancer: incluye guía de bienvenida, brief, contrato, propuesta, presupuesto y reporte — todo editable en Canva",
+        "buttonLabel": "Comprar Kit Organización Freelancer",
+        "href": "https://marlocomunica.mitiendanube.com/productos/kit-organizacion-freelancer/"
+      },
+      {
+        "image": "./images/kit-digital-estrategia.png",
+        "alt": "Kit Digital: Tu estrategia en 5 pasos — ebook y guías editables para optimizar y crecer en redes sociales",
+        "buttonLabel": "Comprar Kit Digital",
+        "href": "https://marlocomunica.mitiendanube.com/productos/kit-30-dias-para-crecer-en-redes-tu-estrategia-digital-en-5-pasos/"
+      }
+    ]
+  },
   "footer": {
     "links": [
       {
