@@ -18,6 +18,11 @@ const KitsEditables = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
           {kits.map((kit, index) => (
             <div key={index} className="group flex flex-col items-center">
+              {/* Título del kit */}
+              <h3 className="font-neulis text-xl md:text-2xl font-black uppercase tracking-wide text-white text-center mb-5">
+                {kit.heading}
+              </h3>
+
               {/* Tarjeta oscura con glow y animación al hover */}
               <div
                 className="relative w-full rounded-2xl p-6 overflow-hidden transition-all duration-400 ease-out
