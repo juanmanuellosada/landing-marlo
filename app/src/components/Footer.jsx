@@ -28,7 +28,7 @@ const Footer = () => {
                 />
               )}
             </div>
-            <span className="font-bold text-sm md:text-base tracking-wider">{link.text}</span>
+            <span className="font-bold text-sm md:text-base">{link.text}</span>
           </a>
         ))}
       </div>

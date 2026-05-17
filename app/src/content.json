@@ -38,14 +38,14 @@
     }
   },
   "about": {
-    "title": "Mariana Losada, 29 años",
+    "title": "Hola, soy Mariana Losada",
     "description": "Especialista en marketing digital, slow marketing, community management y trabajo estratégico en redes sociales.",
     "subtitle": "Combino experiencia en gestión de redes, creación de contenido y campañas publicitarias (Ads) para potenciar marcas de manera auténtica y sostenible.",
     "content": "Trabajo de forma 100% personalizada en cada negocio, entendiendo sus objetivos para diseñar estrategias a medida, con una mirada fresca, visual y orientada a resultados."
   },
   "philosophy": {
     "mainTitle": "En nuestro estudio, tenemos un enfoque diferente",
-    "intro": "En un mundo donde todo parece ir demasiado rápido, trabajamos con Slow Marketing Method, invitandote a hacer las cosas de manera diferente.",
+    "intro": "En un mundo donde todo parece ir demasiado rápido, trabajamos con Slow Marketing Method, invitándote a hacer las cosas de manera diferente.",
     "description": "En lugar de perseguir métricas vacías y resultados efímeros, creamos estrategias de redes sociales que generan conexiones genuinas, engagement real y crecimiento sostenible.",
     "highlights": [
       "+Calma",
@@ -55,19 +55,19 @@
   },
   "services": [
     {
-      "title": "BRANDING & IDENTIDAD VISUAL",
-      "description": "El branding es la experiencia que vive cada persona al conectar con tu marca. Es lo que genera una conexión emocional y hace que tu proyecto tenga identidad propia.\n\nNos encargamos de construir tu marca desde cero: definimos su esencia, personalidad, público ideal y el mensaje que quiere transmitir.\n\nA partir de eso, desarrollamos una identidad visual coherente que refleje todo lo que tu marca representa."
+      "title": "Branding & Identidad Visual",
+      "description": "Que tu marca se reconozca y genere una conexión emocional real con tu público.\n\nConstruimos tu identidad desde cero: definimos su esencia, personalidad, público ideal y el mensaje que quiere transmitir.\n\nA partir de eso, desarrollamos una identidad visual coherente que refleje todo lo que tu marca representa."
     },
     {
-      "title": "DISEÑO GRÁFICO & PIEZAS DIGITALES",
-      "description": "Diseñamos piezas visuales alineadas con la identidad de tu marca: desde el logo e identidad visual, hasta papelería, contenido y flyers para redes sociales."
+      "title": "Diseño Gráfico & Piezas Digitales",
+      "description": "Que cada pieza de tu marca se vea profesional y coherente. Diseñamos todo tu material visual —logo, identidad, papelería, contenido y flyers para redes— alineado con la identidad de tu marca."
     },
     {
-      "title": "ADS MANAGER | META ADS ",
-      "description": "Si buscás aumentar la visibilidad de tu negocio y atraer nuevos clientes, nuestro servicio de gestión en Meta Ads está pensado para ayudarte a alcanzar esos objetivos.\nCreamos y gestionamos campañas publicitarias en Instagram y Facebook para promocionar tus productos o servicios de forma estratégica y efectiva."
+      "title": "Ads Manager | Meta Ads",
+      "description": "Llegá a nuevos clientes y aumentá la visibilidad de tu negocio.\nCreamos y gestionamos campañas publicitarias en Instagram y Facebook para promocionar tus productos o servicios de forma estratégica y efectiva."
     },
     {
-      "title": "GESTIÓN DE REDES | COMMUNITY SOCIAL MEDIA MANAGEMENT",
+      "title": "Gestión de Redes | Community & Social Media Management",
       "description": "¿Te cuesta mantener activas tus redes? Nosotros nos encargamos.\nGestionamos tu cuenta de forma estratégica para que tu marca tenga una presencia profesional, constante y alineada con tus objetivos.\nIncluye análisis de marca, estrategia, diseño, redacción y publicación de contenido para Instagram, Facebook y TikTok.\n📈 Más visibilidad, más interacción y una comunidad conectada con tu marca."
     }
   ],
@@ -93,15 +93,16 @@
     ],
     "description": [
       "Gestionamos tus redes para que puedas enfocarte en tu negocio. Nos encargamos de tu presencia digital con una comunicación coherente, organizada y alineada con la esencia de tu marca.",
-      "Creamos contenidos y estrategias únicas para tu negocio, alineadas con tus objetivos y la identidad de tu marca."
+      "Creamos contenidos y estrategias únicas para tu negocio, alineadas con tus objetivos y la identidad de tu marca.",
+      "Si querés trabajar con SLOW MARKETING, construyamos juntos una marca con presencia auténtica y estratégica."
     ],
-    "ctaText": "Si querés trabajar con SLOW MARKETING y construir una marca con presencia auténtica y estratégica, hablemos."
+    "ctaText": "Hablemos de tu marca"
   },
   "strategies": {
-    "title": "Estrategias",
+    "title": "Cómo hacemos crecer tu marca",
     "items": [
-      "📲 Creación de contenido : Desarrollamos un calendario editorial con publicaciones semanales para Instagram, Facebook o TikTok, incluyendo redacción y diseño profesional.",
-      "🤝 Gestión de comunidad : Respondemos comentarios y fomentamos la interacción con dinámicas que fortalecen el vínculo con tu audiencia.",
+      "📲 Creación de contenido: Desarrollamos un calendario editorial con publicaciones semanales para Instagram, Facebook o TikTok, incluyendo redacción y diseño profesional.",
+      "🤝 Gestión de comunidad: Respondemos comentarios y fomentamos la interacción con dinámicas que fortalecen el vínculo con tu audiencia.",
       "📈 Publicidad y colaboraciones: Creamos y gestionamos campañas publicitarias y colaboraciones estratégicas para aumentar el alcance y atraer nuevos seguidores."
     ]
   },
@@ -109,7 +110,7 @@
     "enabled": true,
     "ribbon": "40% OFF",
     "title": "KITS SALE",
-    "couponLine": "USA EL CUPON #MARLOSALE",
+    "couponLine": "USÁ EL CUPÓN #MARLOSALE",
     "subtitle": "ES TU MOMENTO PARA MEJORAR TU MARCA",
     "badgeDiscount": "-40%",
     "badgeText": "DE DESCUENTO EN CUALQUIER KIT",
@@ -135,7 +136,7 @@
         "heading": "02 - Nuestro método para optimizar redes y crecer",
         "image": "./images/kit-digital-estrategia.png",
         "alt": "Kit Digital: Tu estrategia en 5 pasos — ebook y guías editables para optimizar y crecer en redes sociales",
-        "buttonLabel": "Comprar KIT NUESTRO METODO ",
+        "buttonLabel": "Comprar Kit Nuestro Método",
         "href": "https://marlocomunica.mitiendanube.com/productos/kit-30-dias-para-crecer-en-redes-tu-estrategia-digital-en-5-pasos/"
       }
     ]
@@ -144,17 +145,17 @@
     "links": [
       {
         "image": "./images/tiendanube.png",
-        "text": "USÁ MI LINK DE AFILIADO PARA UN 25%OFF EN TU PRIMER MES",
+        "text": "Usá mi link de afiliado para un 25% OFF en tu primer mes",
         "url": "https://www.tiendanube.com/partners/Marlocomunica"
       },
       {
         "image": "./images/canva-logo.avif",
-        "text": "APRENDE A DISENAR CON CANVA HACIENDO CLICK ACA",
+        "text": "Aprendé a diseñar con Canva haciendo click acá",
         "url": "https://marlocomunica.mitiendanube.com/productos/curso-ebook-canva-para-principiantes/"
       },
       {
         "icon": "whatsapp",
-        "text": "RECIBI ASESORAMIENTO PERSONALIZADO",
+        "text": "Recibí asesoramiento personalizado",
         "url": "https://wa.me/5491136178552"
       }
     ]

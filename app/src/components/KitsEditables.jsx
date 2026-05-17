@@ -10,7 +10,7 @@ const KitsEditables = () => {
           <h2 className="font-neulis text-4xl md:text-5xl font-black uppercase tracking-wide text-white mb-4">
             {title}
           </h2>
-          <p className="text-white text-base md:text-lg tracking-widest uppercase">
+          <p className="text-white text-base md:text-lg">
             {subtitle}
           </p>
         </div>
@@ -19,7 +19,7 @@ const KitsEditables = () => {
           {kits.map((kit, index) => (
             <div key={index} className="group flex flex-col items-center">
               {/* Título del kit */}
-              <h3 className="font-neulis text-xl md:text-2xl font-black uppercase tracking-wide text-white text-center mb-5">
+              <h3 className="font-neulis text-xl md:text-2xl font-black tracking-wide text-white text-center mb-5">
                 {kit.heading}
               </h3>
 
