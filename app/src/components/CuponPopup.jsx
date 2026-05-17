@@ -53,7 +53,7 @@ const CuponPopup = () => {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={`${cupon.title || 'Hot Sale'} - ${cupon.couponLine || ''}`}
+      aria-label={`${cupon.title || 'Kits Sale'} - ${cupon.couponLine || ''}`}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 animate-cupon-overlay-in"
     >
       {/* Backdrop */}

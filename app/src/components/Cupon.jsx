@@ -130,7 +130,7 @@ const Cupon = () => {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${cupon.title || 'Hot Sale'} - ${cupon.couponLine || ''}`}
+        aria-label={`${cupon.title || 'Kits Sale'} - ${cupon.couponLine || ''}`}
         className="group block max-w-6xl mx-auto relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/20 hover:ring-white/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] animate-cupon-pulse"
       >
         <CuponCard cupon={cupon} size="banner" />
