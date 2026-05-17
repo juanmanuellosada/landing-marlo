@@ -2,7 +2,7 @@ import { FaInstagram, FaFacebookF, FaTiktok, FaPinterestP } from 'react-icons/fa
 import content from '../content.json';
 
 const Hero = () => {
-  const { name, role, links, socialMedia } = content.hero;
+  const { name, role, headline, subtitle, links, socialMedia } = content.hero;
 
   return (
     <section className="min-h-screen flex flex-col md:flex-row items-center justify-center p-8 md:p-20 gap-10 md:gap-20 relative overflow-hidden font-garet">
@@ -22,6 +22,8 @@ const Hero = () => {
         <div className="text-center md:text-left">
           <h1 className="text-4xl md:text-5xl mb-2">{name}</h1>
           <p className="text-sm tracking-widest uppercase">{role}</p>
+          <p className="text-2xl md:text-3xl font-bold leading-tight mt-4">{headline}</p>
+          <p className="text-base md:text-lg text-white/80 mt-2">{subtitle}</p>
         </div>
 
         <div className="flex flex-col gap-4 w-full">
