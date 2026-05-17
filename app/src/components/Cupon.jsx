@@ -2,6 +2,7 @@ import content from '../content.json';
 
 export const CuponCard = ({ cupon, size = 'banner' }) => {
   const {
+    title = 'KITS SALE',
     ribbon = '40% OFF',
     couponLine = 'USA EL CUPON #MARLOSALE',
     subtitle = 'ES TU MOMENTO PARA MEJORAR TU MARCA',
@@ -55,9 +56,7 @@ export const CuponCard = ({ cupon, size = 'banner' }) => {
                 : 'text-6xl sm:text-7xl md:text-8xl'
             }`}
           >
-            HOT
-            <br />
-            SALE
+            {title.split(' ').map((word, i) => (i > 0 ? [<br key={i} />, word] : word))}
           </h2>
           <p
             className={`font-sans font-bold tracking-wide ${
