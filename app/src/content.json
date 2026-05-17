@@ -54,43 +54,43 @@
   "services": [
     {
       "title": "BRANDING & IDENTIDAD VISUAL",
-      "description": "El branding es la experiencia que queres hacer vivir a todo aquel que llega hasta tu proyecto. Es el responsable de conseguir la conexión emocional entre el cliente y la marca.\nNos encargamos de construir tu marca desde cero, definir el cliente ideal, su personalidad, y lo que busca transmitir.\nEs la esencia de tu marca, lo no tangible.\n\nTrabajamos la identidad visual sobre eso, que será la forma en lo que todo eso se refleje."
+      "description": "El branding es la experiencia que vive cada persona al conectar con tu marca. Es lo que genera una conexión emocional y hace que tu proyecto tenga identidad propia.\n\nNos encargamos de construir tu marca desde cero: definimos su esencia, personalidad, público ideal y el mensaje que quiere transmitir.\n\nA partir de eso, desarrollamos una identidad visual coherente que refleje todo lo que tu marca representa."
     },
     {
       "title": "DISEÑO GRÁFICO & PIEZAS DIGITALES",
-      "description": "Nos encargamos de diseñar piezas para tu marca, desde el logo o identidad visual, hasta la papelería o flyers para redes sociales."
+      "description": "Diseñamos piezas visuales alineadas con la identidad de tu marca: desde el logo e identidad visual, hasta papelería, contenido y flyers para redes sociales."
     },
     {
-      "title": "ADS MANAGER | PUBLICIDAD EN INSTAGRAM & FACEBOOK ADS",
-      "description": "Si buscas una forma de aumentar la visibilidad y atraer nuevos clientes en tu negocio, el servicio de gestión en MetaAds busca alcanzar tus objetivos.\nCreamos campañas publicitarias en redes sociales con el fin de promocionar tus productos o servicios."
+      "title": "ADS MANAGER | META ADS ",
+      "description": "Si buscás aumentar la visibilidad de tu negocio y atraer nuevos clientes, nuestro servicio de gestión en Meta Ads está pensado para ayudarte a alcanzar esos objetivos.\nCreamos y gestionamos campañas publicitarias en Instagram y Facebook para promocionar tus productos o servicios de forma estratégica y efectiva."
     },
     {
       "title": "GESTIÓN DE REDES | COMMUNITY SOCIAL MEDIA MANAGEMENT",
-      "description": "Si te cuesta mantener una presencia constante en redes sociales, este servicio es para vos.\nNos basamos en la gestión estrategica de tu cuenta, desde lo interno hasta el diseño y publicación de las piezas.\nEl objetivo es aumentar la visibilidad, la interaccion y fidelidad de tus seguidores y clientes.\nNuestro servicio integral incluye análisis de tu marca, cliente ideal, redacción, diseño y publicación del contenido. Nos especializamos en Instagram, Facebook, y Tiktok, para conectar organicamente con tu público."
+      "description": "¿Te cuesta mantener activas tus redes? Nosotros nos encargamos.\nGestionamos tu cuenta de forma estratégica para que tu marca tenga una presencia profesional, constante y alineada con tus objetivos.\nIncluye análisis de marca, estrategia, diseño, redacción y publicación de contenido para Instagram, Facebook y TikTok.\n📈 Más visibilidad, más interacción y una comunidad conectada con tu marca."
     }
   ],
   "whyUs": {
-    "title": "¿Por qué elegir Slow Marketing para tu marca?",
+    "title": "¿Por qué elegir nuestro método SLOW para tu marca?",
     "reasons": [
       {
-        "icon": "✅",
-        "title": "Autenticidad",
-        "text": "Contamos tu historia de manera natural, sin caer en tácticas invasivas."
+        "icon": "✅ ",
+        "title": "Comunicación auténtica y alineada con tu marca.",
+        "text": ""
       },
       {
-        "icon": "🔒",
-        "title": "Compromiso real",
-        "text": "Priorizamos la comunidad sobre los números, fomentando interacciones valiosas."
+        "icon": "🤝",
+        "title": "🤝 Construimos comunidad, no solo números.",
+        "text": ""
       },
       {
         "icon": "😎",
-        "title": "Estrategia a largo plazo",
-        "text": "No buscamos viralidad momentánea, sino un crecimiento sólido y duradero."
+        "title": "Priorizamos la autenticidad y las interacciones reales.",
+        "text": " "
       },
       {
-        "icon": "✅",
-        "title": "Menos estrés, más resultados",
-        "text": "Te sacamos del estres y ansiedad de las redes, nosotros nos encargamos de gestionar tu presencia digital con coherencia y tranquilidad."
+        "icon": "📈",
+        "title": "Estrategias pensadas para un crecimiento sostenible.",
+        "text": "Gestionamos tus redes para que tengas menos estrés y más claridad.\n\nNos encargamos de tu presencia digital con una comunicación coherente, organizada y alineada con la esencia de tu marca."
       }
     ],
     "description": [
@@ -98,14 +98,14 @@
       "Podemos personalizar la propuesta para que tu estrategia y contenidos sean únicos.",
       "Te ayudamos a crear una estrategia de redes alineada con tu esencia y objetivos."
     ],
-    "ctaText": "Si estas listo para despegar en redes de forma diferente, contactanos!"
+    "ctaText": "Si querés trabajar con SLOW MARKETING y construir una marca con presencia auténtica y estratégica, hablemos. Creamos contenidos y estrategias únicas para tu negocio.  Te ayudamos a desarrollar una estrategia de redes alineada con tus objetivos y la identidad de tu marca."
   },
   "strategies": {
     "title": "Estrategias",
     "items": [
-      "Creación de contenido atractivo y relevante: Se desarrollará un calendario de contenidos editorial de publicaciones semanales en Instagram y facebook o Tiktok. Incluida la redacción y diseño profesional.",
-      "Gestión activa de las comunidades: Se responderá a comentarios y se fomentará la interacción entre los miembros de la comunidad con dinámicas interactivas.",
-      "Implementación de campañas de publicidad en redes sociales o colaboraciones: Se crearán y gestionarán campañas publicitarias o colaboraciones para atraer nuevos seguidores y aumentar el alcance de las publicaciones."
+      "📲 Creación de contenido : Desarrollamos un calendario editorial con publicaciones semanales para Instagram, Facebook o TikTok, incluyendo redacción y diseño profesional.",
+      "🤝 Gestión de comunidad : Respondemos comentarios y fomentamos la interacción con dinámicas que fortalecen el vínculo con tu audiencia.",
+      "📈 Publicidad y colaboraciones: Creamos y gestionamos campañas publicitarias y colaboraciones estratégicas para aumentar el alcance y atraer nuevos seguidores."
     ]
   },
   "cupon": {
