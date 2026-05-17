@@ -12,9 +12,7 @@ const WhyUs = () => {
           {reasons.map((reason, index) => (
             <div key={index} className="flex gap-4 items-start">
               <span className="text-2xl">{reason.icon}</span>
-              <p className="text-lg">
-                <span className="font-bold italic">{reason.title}:</span> {reason.text}
-              </p>
+              <p className="text-lg">{reason.text}</p>
             </div>
           ))}
         </div>

@@ -73,32 +73,27 @@
     "title": "¿Por qué elegir nuestro método SLOW para tu marca?",
     "reasons": [
       {
-        "icon": "✅ Comunicación auténtica y alineada con tu marca. ",
-        "title": "",
-        "text": ""
+        "icon": "✅",
+        "text": "Comunicación auténtica y alineada con tu marca."
       },
       {
-        "icon": "🤝  Construimos comunidad, no solo números.",
-        "title": "",
-        "text": ""
+        "icon": "🤝",
+        "text": "Construimos comunidad, no solo números."
       },
       {
-        "icon": "😎Priorizamos la autenticidad y las interacciones reales.",
-        "title": "",
-        "text": " "
+        "icon": "😎",
+        "text": "Priorizamos la autenticidad y las interacciones reales."
       },
       {
-        "icon": "📈Estrategias pensadas para un crecimiento sostenible. ",
-        "title": "",
-        "text": ""
+        "icon": "📈",
+        "text": "Estrategias pensadas para un crecimiento sostenible."
       }
     ],
     "description": [
-      "Si queres que tu marca crezca de forma auténtica y sostenible, hablemos. Contanos sobre tu marca o negocio.",
-      "Podemos personalizar la propuesta para que tu estrategia y contenidos sean únicos.",
-      "Te ayudamos a crear una estrategia de redes alineada con tu esencia y objetivos."
+      "Gestionamos tus redes para que puedas enfocarte en tu negocio. Nos encargamos de tu presencia digital con una comunicación coherente, organizada y alineada con la esencia de tu marca.",
+      "Creamos contenidos y estrategias únicas para tu negocio, alineadas con tus objetivos y la identidad de tu marca."
     ],
-    "ctaText": "Gestionamos tus redes para que tengas menos estrés y más claridad.  Nos encargamos de tu presencia digital con una comunicación coherente, organizada y alineada con la esencia de tu marca.Si querés trabajar con SLOW MARKETING y construir una marca con presencia auténtica y estratégica, hablemos. Creamos contenidos y estrategias únicas para tu negocio.  Te ayudamos a desarrollar una estrategia de redes alineada con tus objetivos y la identidad de tu marca."
+    "ctaText": "Si querés trabajar con SLOW MARKETING y construir una marca con presencia auténtica y estratégica, hablemos."
   },
   "strategies": {
     "title": "Estrategias",
