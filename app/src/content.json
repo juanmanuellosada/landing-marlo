@@ -27,7 +27,7 @@
       },
       {
         "name": "PROYECTOS",
-        "href": "https://www.behance.net/marlocomunica"
+        "href": "#proyectos"
       }
     ],
     "socialMedia": {
@@ -139,6 +139,31 @@
         "buttonLabel": "Comprar Kit Nuestro Método",
         "href": "https://marlocomunica.mitiendanube.com/productos/kit-30-dias-para-crecer-en-redes-tu-estrategia-digital-en-5-pasos/"
       }
+    ]
+  },
+  "proyectos": {
+    "title": "NUESTROS PROYECTOS",
+    "subtitle": "Estos son solo algunos de los logos que diseñamos.",
+    "ctaText": "Ver más",
+    "ctaHref": "https://www.behance.net/marlocomunica",
+    "logos": [
+      "./images/proyectos/1.png",
+      "./images/proyectos/2.png",
+      "./images/proyectos/3.png",
+      "./images/proyectos/4.png",
+      "./images/proyectos/5.png",
+      "./images/proyectos/6.png",
+      "./images/proyectos/7.png",
+      "./images/proyectos/8.png",
+      "./images/proyectos/9.png",
+      "./images/proyectos/10.png",
+      "./images/proyectos/11.png",
+      "./images/proyectos/12.png",
+      "./images/proyectos/13.png",
+      "./images/proyectos/14.png",
+      "./images/proyectos/15.png",
+      "./images/proyectos/16.png",
+      "./images/proyectos/17.png"
     ]
   },
   "footer": {

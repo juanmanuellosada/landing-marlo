@@ -5,6 +5,7 @@ import KitsEditables from './KitsEditables';
 import About from './About';
 import Philosophy from './Philosophy';
 import Services from './Services';
+import Proyectos from './Proyectos';
 import WhyUs from './WhyUs';
 import Strategies from './Strategies';
 import Footer from './Footer';
@@ -31,6 +32,7 @@ const LandingPage = () => {
         <About />
         <Philosophy />
         <Services />
+        <Proyectos />
         <WhyUs />
         <Strategies />
         <Footer />
