@@ -82,7 +82,7 @@ const Testimonios = () => {
           {/* Scroll track */}
           <div
             ref={trackRef}
-            className="testimonios-track flex overflow-x-auto scrollbar-hide gap-4 px-8 md:px-16"
+            className="testimonios-track flex items-center overflow-x-auto scrollbar-hide gap-4 px-8 md:px-16"
           >
             {images.map((src, i) => (
               <button
@@ -95,11 +95,9 @@ const Testimonios = () => {
                 <img
                   src={src}
                   alt={`Testimonio de cliente ${i + 1}`}
-                  width={390}
-                  height={844}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover scale-110 pointer-events-none select-none"
+                  className="block w-full h-auto pointer-events-none select-none"
                   draggable={false}
                 />
               </button>
@@ -151,9 +149,7 @@ const Testimonios = () => {
               <img
                 src={images[lightboxIndex]}
                 alt={`Testimonio de cliente ${lightboxIndex + 1}`}
-                width={3375}
-                height={4219}
-                className="block w-auto h-auto max-w-[min(92vw,672px)] max-h-[85vh] object-contain scale-110"
+                className="block w-auto h-auto max-w-[min(92vw,672px)] max-h-[85vh] object-contain"
                 draggable={false}
               />
             </div>
