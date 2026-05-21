@@ -6,6 +6,7 @@ import About from './About';
 import Philosophy from './Philosophy';
 import Services from './Services';
 import Proyectos from './Proyectos';
+import Testimonios from './Testimonios';
 import WhyUs from './WhyUs';
 import Strategies from './Strategies';
 import Footer from './Footer';
@@ -33,6 +34,7 @@ const LandingPage = () => {
         <Philosophy />
         <Services />
         <Proyectos />
+        <Testimonios />
         <WhyUs />
         <Strategies />
         <Footer />

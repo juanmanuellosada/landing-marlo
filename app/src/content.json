@@ -166,6 +166,20 @@
       "./images/proyectos/17.png"
     ]
   },
+  "testimonios": {
+    "title": "Lo que dicen nuestros clientes",
+    "subtitle": "Resultados reales de marcas reales.",
+    "images": [
+      "/images/testimonios/testimonio-1.webp",
+      "/images/testimonios/testimonio-2.webp",
+      "/images/testimonios/testimonio-3.webp",
+      "/images/testimonios/testimonio-4.webp",
+      "/images/testimonios/testimonio-5.webp",
+      "/images/testimonios/testimonio-6.webp",
+      "/images/testimonios/testimonio-7.webp",
+      "/images/testimonios/testimonio-8.webp"
+    ]
+  },
   "footer": {
     "links": [
       {
