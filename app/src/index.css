@@ -100,3 +100,21 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome/Safari/Opera */
 }
+
+/* Testimonios carousel */
+.testimonios-track {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.testimonios-card {
+  width: clamp(280px, 82vw, 340px);
+  aspect-ratio: 4 / 5;
+  scroll-snap-align: center;
+}
+
+@media (min-width: 768px) {
+  .testimonios-card {
+    width: clamp(380px, 34vw, 500px);
+  }
+}

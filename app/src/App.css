@@ -41,20 +41,3 @@
   color: #888;
 }
 
-/* Testimonios */
-.testimonios-track {
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.testimonios-card {
-  width: clamp(220px, 76vw, 280px);
-  aspect-ratio: 9 / 19.5;
-  scroll-snap-align: center;
-}
-
-@media (min-width: 768px) {
-  .testimonios-card {
-    width: clamp(220px, 26vw, 280px);
-  }
-}

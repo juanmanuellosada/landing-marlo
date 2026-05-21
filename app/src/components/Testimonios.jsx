@@ -99,7 +99,7 @@ const Testimonios = () => {
                   height={844}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover pointer-events-none select-none"
+                  className="w-full h-full object-cover scale-110 pointer-events-none select-none"
                   draggable={false}
                 />
               </button>
@@ -135,7 +135,7 @@ const Testimonios = () => {
           />
 
           {/* Image container */}
-          <div className="relative flex items-center justify-center w-full max-w-sm">
+          <div className="relative flex items-center justify-center">
             {/* Prev */}
             <button
               type="button"
@@ -147,13 +147,13 @@ const Testimonios = () => {
             </button>
 
             {/* Screenshot */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/20 w-full">
+            <div className="rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/20">
               <img
                 src={images[lightboxIndex]}
                 alt={`Testimonio de cliente ${lightboxIndex + 1}`}
-                width={390}
-                height={844}
-                className="w-full h-auto object-contain"
+                width={3375}
+                height={4219}
+                className="block w-auto h-auto max-w-[min(92vw,672px)] max-h-[85vh] object-contain scale-110"
                 draggable={false}
               />
             </div>
