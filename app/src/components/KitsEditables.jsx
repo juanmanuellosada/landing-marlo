@@ -1,16 +1,20 @@
 import content from '../content.json';
+import Badge from './ui/Badge';
+import Button from './ui/Button';
+
+const KIT_BADGES = ['🔥 Más vendido', '⭐️ Más popular'];
 
 const KitsEditables = () => {
   const { title, subtitle, kits } = content.kitsEditables;
 
   return (
-    <section className="py-16 px-8 md:px-20">
+    <section className="py-16 px-8 md:px-20 bg-brand-orange text-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-neulis text-4xl md:text-5xl font-black uppercase tracking-wide text-white mb-4">
+          <h2 className="font-garet text-4xl md:text-5xl font-black uppercase tracking-wide text-white mb-4">
             {title}
           </h2>
-          <p className="text-white text-base md:text-lg">
+          <p className="text-white/80 text-base md:text-lg">
             {subtitle}
           </p>
         </div>
@@ -18,16 +22,18 @@ const KitsEditables = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
           {kits.map((kit, index) => (
             <div key={index} className="group flex flex-col items-center">
-              {/* Título del kit */}
-              <h3 className="font-neulis text-xl md:text-2xl font-black tracking-wide text-white text-center mb-5">
+              {/* Badge + kit heading */}
+              <Badge variant="dark" className="mb-3">
+                {KIT_BADGES[index] ?? '✨ Kit'}
+              </Badge>
+              <h3 className="font-garet text-xl md:text-2xl font-black tracking-wide text-white text-center mb-5">
                 {kit.heading}
               </h3>
 
-              {/* Tarjeta oscura con glow y animación al hover */}
+              {/* Card with glow */}
               <div
                 className="relative w-full rounded-2xl p-6 overflow-hidden transition-all duration-400 ease-out
-                  group-hover:-translate-y-3 group-hover:scale-[1.025] group-hover:shadow-2xl"
-                style={{ backgroundColor: '#371a09' }}
+                  group-hover:-translate-y-3 group-hover:scale-[1.025] group-hover:shadow-2xl bg-brand-dark"
               >
                 {/* Glow difuso de fondo */}
                 <div
@@ -38,7 +44,6 @@ const KitsEditables = () => {
                     filter: 'blur(18px)',
                   }}
                 />
-
                 <img
                   src={kit.image}
                   alt={kit.alt}
@@ -48,15 +53,15 @@ const KitsEditables = () => {
               </div>
 
               {/* CTA */}
-              <a
+              <Button
                 href={kit.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block px-6 py-3 text-sm font-bold uppercase tracking-wider rounded shadow-md hover:brightness-110 transition-all duration-200"
-                style={{ backgroundColor: '#371a09', color: '#ffffff' }}
+                variant="dark"
+                className="mt-4 text-sm uppercase"
               >
                 {kit.buttonLabel} ›
-              </a>
+              </Button>
             </div>
           ))}
         </div>

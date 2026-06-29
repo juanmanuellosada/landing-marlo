@@ -1,183 +1,164 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
-import { FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import content from '../content.json';
+import SectionTitle from './ui/SectionTitle';
 
-const Testimonios = () => {
-  const { title, subtitle, images } = content.testimonios;
-  const count = images.length;
+// ── Helpers ────────────────────────────────────────────────────────────────
 
-  const trackRef = useRef(null);
-  const closeBtnRef = useRef(null);
-  const [lightboxIndex, setLightboxIndex] = useState(null);
-
-  // ── Scroll helpers ──
-  const scrollByCard = (dir) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const card = track.querySelector('.testimonios-card');
-    const cardWidth = card ? card.offsetWidth + 16 : track.clientWidth;
-    track.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
-  };
-
-  // ── Lightbox ──
-  const openLightbox = useCallback((i) => {
-    setLightboxIndex(i);
-  }, []);
-
-  const closeLightbox = useCallback(() => {
-    setLightboxIndex(null);
-  }, []);
-
-  const prevLightbox = useCallback(() => {
-    setLightboxIndex((i) => (i - 1 + count) % count);
-  }, [count]);
-
-  const nextLightbox = useCallback(() => {
-    setLightboxIndex((i) => (i + 1) % count);
-  }, [count]);
-
-  useEffect(() => {
-    if (lightboxIndex === null) return;
-
-    // Focus close button for accessibility
-    closeBtnRef.current?.focus();
-
-    const onKey = (e) => {
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevLightbox();
-      if (e.key === 'ArrowRight') nextLightbox();
-    };
-
-    window.addEventListener('keydown', onKey);
-    document.body.style.overflow = 'hidden';
-
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
-    };
-  }, [lightboxIndex, closeLightbox, prevLightbox, nextLightbox]);
-
+/** Splits quote around the first occurrence of highlight for bold rendering. */
+function QuoteText({ quote, highlight }) {
+  if (!highlight || !quote.includes(highlight)) {
+    return <span>{quote}</span>;
+  }
+  const idx = quote.indexOf(highlight);
+  const before = quote.slice(0, idx);
+  const after = quote.slice(idx + highlight.length);
   return (
     <>
-      <section
-        id="testimonios"
-        aria-label="Testimonios de clientes"
-        className="py-20 px-0 bg-black/10"
-      >
-        <div className="px-8 md:px-20 max-w-7xl mx-auto mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold font-garet mb-3">{title}</h2>
-          <p className="text-base md:text-lg text-white/80 font-garet">{subtitle}</p>
-        </div>
-
-        <div className="relative">
-          {/* Prev arrow */}
-          <button
-            onClick={() => scrollByCard(-1)}
-            aria-label="Anterior testimonio"
-            className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full border-2 border-white text-white hover:bg-white hover:text-brand-orange transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white"
-          >
-            <FiChevronLeft size={20} />
-          </button>
-
-          {/* Scroll track */}
-          <div
-            ref={trackRef}
-            className="testimonios-track flex items-center overflow-x-auto scrollbar-hide gap-4 px-8 md:px-16"
-          >
-            {images.map((src, i) => (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Ver testimonio ${i + 1} ampliado`}
-                onClick={() => openLightbox(i)}
-                className="testimonios-card flex-none rounded-2xl border border-white/10 shadow-lg overflow-hidden cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-white"
-              >
-                <img
-                  src={src}
-                  alt={`Testimonio de cliente ${i + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                  className="block w-full h-auto pointer-events-none select-none"
-                  draggable={false}
-                />
-              </button>
-            ))}
-          </div>
-
-          {/* Next arrow */}
-          <button
-            onClick={() => scrollByCard(1)}
-            aria-label="Siguiente testimonio"
-            className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full border-2 border-white text-white hover:bg-white hover:text-brand-orange transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white"
-          >
-            <FiChevronRight size={20} />
-          </button>
-        </div>
-      </section>
-
-      {/* ── Lightbox ── */}
-      {lightboxIndex !== null && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Testimonio ${lightboxIndex + 1} — vista ampliada`}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
-        >
-          {/* Backdrop */}
-          <button
-            type="button"
-            aria-label="Cerrar lightbox"
-            onClick={closeLightbox}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-default"
-            tabIndex={-1}
-          />
-
-          {/* Image container */}
-          <div className="relative flex items-center justify-center">
-            {/* Prev */}
-            <button
-              type="button"
-              aria-label="Testimonio anterior"
-              onClick={prevLightbox}
-              className="absolute -left-4 sm:-left-14 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full border-2 border-white text-white hover:bg-white hover:text-brand-orange transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white"
-            >
-              <FiChevronLeft size={22} />
-            </button>
-
-            {/* Screenshot */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/20">
-              <img
-                src={images[lightboxIndex]}
-                alt={`Testimonio de cliente ${lightboxIndex + 1}`}
-                className="block w-auto h-auto max-w-[min(92vw,672px)] max-h-[85vh] object-contain"
-                draggable={false}
-              />
-            </div>
-
-            {/* Next */}
-            <button
-              type="button"
-              aria-label="Testimonio siguiente"
-              onClick={nextLightbox}
-              className="absolute -right-4 sm:-right-14 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full border-2 border-white text-white hover:bg-white hover:text-brand-orange transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white"
-            >
-              <FiChevronRight size={22} />
-            </button>
-
-            {/* Close */}
-            <button
-              ref={closeBtnRef}
-              type="button"
-              aria-label="Cerrar"
-              onClick={closeLightbox}
-              className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 z-20 w-10 h-10 rounded-full bg-white text-brand-orange shadow-xl flex items-center justify-center hover:scale-110 hover:rotate-90 transition-transform duration-300 ring-2 ring-brand-orange"
-            >
-              <FiX size={18} />
-            </button>
-          </div>
-        </div>
-      )}
+      <span>{before}</span>
+      <span className="font-extrabold">{highlight}</span>
+      <span>{after}</span>
     </>
+  );
+}
+
+/** Filled star icon. */
+function StarIcon() {
+  return (
+    <svg
+      className="w-4 h-4 fill-[var(--color-brand-orange)]"
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+    >
+      <path d="M10 15.27L16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z" />
+    </svg>
+  );
+}
+
+/** Single testimonial card. */
+function TestimonialCard({ item }) {
+  return (
+    <div className="bg-white rounded-2xl border border-[var(--color-charcoal)]/10 shadow-md p-6 flex flex-col gap-4">
+      {/* Stars */}
+      <div className="flex gap-0.5" aria-label={`${item.stars} estrellas`}>
+        {Array.from({ length: item.stars || 5 }).map((_, i) => (
+          <StarIcon key={i} />
+        ))}
+      </div>
+
+      {/* Quote */}
+      <p className="text-[var(--color-charcoal)] text-sm md:text-base leading-relaxed">
+        &ldquo;<QuoteText quote={item.quote} highlight={item.highlight} />&rdquo;
+      </p>
+
+      {/* Badge pill */}
+      <span className="inline-block self-start bg-[#fdf0e0] text-[var(--color-charcoal)] text-xs px-3 py-1.5 rounded-full">
+        {item.badge}
+      </span>
+
+      {/* Divider */}
+      <hr className="border-[var(--color-charcoal)]/10" />
+
+      {/* Author */}
+      <div>
+        <p className="font-bold text-[var(--color-charcoal)] text-sm">{item.name}</p>
+        {item.handle && (
+          <a
+            href={`https://instagram.com/${item.handle.replace(/^@/, '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-brand-orange)] text-sm hover:underline"
+          >
+            {item.handle}
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── Main component ─────────────────────────────────────────────────────────
+
+const Testimonios = () => {
+  const { title, subtitle, items } = content.testimonios;
+
+  // Detect whether we are on mobile (< 768 px) to control items per page.
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    const handler = (e) => {
+      setIsMobile(!e.matches);
+      setPage(0); // reset to first page whenever the breakpoint crosses
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  const perPage = isMobile ? 1 : 2;
+  const totalPages = Math.ceil(items.length / perPage);
+
+  // Clamp page when perPage changes (e.g. resize from desktop→mobile could
+  // leave page beyond the new totalPages).
+  const safePage = Math.min(page, totalPages - 1);
+
+  const currentItems = items.slice(safePage * perPage, safePage * perPage + perPage);
+
+  const prev = () => setPage((p) => Math.max(0, p - 1));
+  const next = () => setPage((p) => Math.min(totalPages - 1, p + 1));
+
+  const pageLabel = String(safePage + 1).padStart(2, '0');
+  const totalLabel = String(totalPages).padStart(2, '0');
+
+  return (
+    <section
+      id="testimonios"
+      aria-label="Testimonios de clientes"
+      className="py-20 px-0 bg-surface-cream"
+    >
+      <SectionTitle title={title} subtitle={subtitle} theme="dark" />
+
+      <div className="px-8 md:px-16 max-w-7xl mx-auto">
+        {/* Card grid — always 2 columns on md+, fills left-to-right */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {currentItems.map((item, i) => (
+            <TestimonialCard key={safePage * perPage + i} item={item} />
+          ))}
+        </div>
+
+        {/* Pagination row */}
+        <div className="flex items-center justify-between mt-8">
+          <span
+            className="text-[var(--color-charcoal)]/60 font-bold text-sm tabular-nums"
+            aria-label={`Página ${safePage + 1} de ${totalPages}`}
+          >
+            {pageLabel}/{totalLabel}
+          </span>
+
+          <div className="flex gap-3">
+            <button
+              type="button"
+              onClick={prev}
+              disabled={safePage === 0}
+              aria-label="Testimonios anteriores"
+              className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-[var(--color-charcoal)] text-[var(--color-charcoal)] hover:bg-[var(--color-charcoal)] hover:text-[var(--color-surface-cream)] transition-all duration-300 motion-reduce:transition-none focus:outline-none focus:ring-2 focus:ring-[var(--color-charcoal)] disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <FiChevronLeft size={20} />
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              disabled={safePage === totalPages - 1}
+              aria-label="Siguientes testimonios"
+              className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-[var(--color-charcoal)] text-[var(--color-charcoal)] hover:bg-[var(--color-charcoal)] hover:text-[var(--color-surface-cream)] transition-all duration-300 motion-reduce:transition-none focus:outline-none focus:ring-2 focus:ring-[var(--color-charcoal)] disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <FiChevronRight size={20} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

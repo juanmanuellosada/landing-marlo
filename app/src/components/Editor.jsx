@@ -1,5 +1,56 @@
 import { useState, useEffect } from 'react';
 import contentData from '../content.json';
+import HeroSection from './editor/HeroSection';
+import AboutSection from './editor/AboutSection';
+import PhilosophySection from './editor/PhilosophySection';
+import ServicesSection from './editor/ServicesSection';
+import StrategiesSection from './editor/StrategiesSection';
+import CuponSection from './editor/CuponSection';
+import ProyectosSection from './editor/ProyectosSection';
+import TestimoniosSection from './editor/TestimoniosSection';
+import KitsSection from './editor/KitsSection';
+import FooterSection from './editor/FooterSection';
+
+// Pre-save validation: ensures required keys and shapes are intact
+// so a save can never silently corrupt content.json.
+function validateContent(c) {
+  const requiredPaths = [
+    'hero.headline', 'hero.subtitle', 'hero.tagline', 'hero.nav', 'hero.products', 'hero.socialMedia',
+    'about.title', 'philosophy.mainTitle',
+    'whyUs.title', 'strategies.title',
+    'cupon.enabled', 'proyectos.title', 'testimonios.title',
+  ];
+  for (const path of requiredPaths) {
+    const keys = path.split('.');
+    let node = c;
+    for (const k of keys) {
+      if (node == null || !(k in node)) {
+        return `Campo requerido faltante: ${path}`;
+      }
+      node = node[k];
+    }
+  }
+  if (!Array.isArray(c.strategies?.items)) {
+    return 'strategies.items debe ser un array';
+  }
+  for (const [i, item] of c.strategies.items.entries()) {
+    if (
+      typeof item !== 'object' ||
+      !('icon' in item) ||
+      !('title' in item) ||
+      !('description' in item)
+    ) {
+      return `Estrategia ${i + 1} debe tener icon, title y description`;
+    }
+  }
+  if (!Array.isArray(c.proyectos?.logos)) {
+    return 'proyectos.logos debe ser un array';
+  }
+  if (!Array.isArray(c.testimonios?.items)) {
+    return 'testimonios.items debe ser un array';
+  }
+  return null; // valid
+}
 
 const Editor = () => {
   const [content, setContent] = useState(contentData);
@@ -7,24 +58,18 @@ const Editor = () => {
   const [message, setMessage] = useState('');
   const [timeRemaining, setTimeRemaining] = useState('');
 
-  // Calcular tiempo restante de sesión
+  // Session countdown display
   useEffect(() => {
     const updateTimeRemaining = () => {
       const lastActivity = parseInt(localStorage.getItem('lastActivity') || '0');
       const sessionStart = parseInt(localStorage.getItem('sessionStart') || '0');
       const now = Date.now();
-      
-      const INACTIVITY_TIMEOUT = 30 * 60 * 1000; // 30 minutos
-      const ABSOLUTE_TIMEOUT = 2 * 60 * 60 * 1000; // 2 horas
-      
-      const inactiveTime = now - lastActivity;
-      const totalTime = now - sessionStart;
-      
-      const remainingInactivity = INACTIVITY_TIMEOUT - inactiveTime;
-      const remainingTotal = ABSOLUTE_TIMEOUT - totalTime;
-      
-      const remaining = Math.min(remainingInactivity, remainingTotal);
-      
+      const INACTIVITY_TIMEOUT = 30 * 60 * 1000;
+      const ABSOLUTE_TIMEOUT = 2 * 60 * 60 * 1000;
+      const remaining = Math.min(
+        INACTIVITY_TIMEOUT - (now - lastActivity),
+        ABSOLUTE_TIMEOUT - (now - sessionStart),
+      );
       if (remaining > 0) {
         const minutes = Math.floor(remaining / 60000);
         const seconds = Math.floor((remaining % 60000) / 1000);
@@ -33,72 +78,82 @@ const Editor = () => {
         setTimeRemaining('Expirada');
       }
     };
-
     updateTimeRemaining();
     const interval = setInterval(updateTimeRemaining, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
+  // Set a value at a dot-path, e.g. 'cupon.popup.enabled'
   const handleChange = (path, value) => {
     const keys = path.split('.');
-    const newContent = { ...content };
-    let current = newContent;
-
+    const next = JSON.parse(JSON.stringify(content));
+    let cur = next;
     for (let i = 0; i < keys.length - 1; i++) {
-      current = current[keys[i]];
+      cur = cur[keys[i]];
     }
-    current[keys[keys.length - 1]] = value;
-
-    setContent(newContent);
+    cur[keys[keys.length - 1]] = value;
+    setContent(next);
   };
 
+  // Update a specific field inside an object-array item.
+  // path points to the array (e.g. 'strategies.items'), index selects the item.
   const handleArrayChange = (path, index, field, value) => {
     const keys = path.split('.');
-    const newContent = { ...content };
-    let current = newContent;
-
-    for (let i = 0; i < keys.length; i++) {
-      if (i === keys.length - 1) {
-        current[keys[i]][index][field] = value;
-      } else {
-        current = current[keys[i]];
-      }
+    const next = JSON.parse(JSON.stringify(content));
+    let cur = next;
+    for (const k of keys) {
+      cur = cur[k];
     }
-
-    setContent(newContent);
+    cur[index][field] = value;
+    setContent(next);
   };
 
   const handleSave = async () => {
+    const validationError = validateContent(content);
+    if (validationError) {
+      setMessage(`❌ Error de validación: ${validationError}`);
+      return;
+    }
+
     setSaving(true);
     setMessage('');
-
     try {
       const response = await fetch('/api/save-content', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(content),
       });
-
       const data = await response.json();
-
+      if (response.status === 401) {
+        setMessage('❌ Sesión expirada. Por favor, iniciá sesión nuevamente.');
+        return;
+      }
       if (response.ok && data.success) {
         setMessage('✅ Contenido guardado y deploy iniciado exitosamente');
       } else {
         setMessage('❌ Error al guardar: ' + (data.error || 'Error desconocido'));
       }
-    } catch (err) {
+    } catch {
       setMessage('❌ Error al conectar con el servidor');
     } finally {
       setSaving(false);
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('editorAuth');
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/logout', { method: 'POST', credentials: 'include' });
+    } catch { /* noop — navegamos de todas formas */ }
+    localStorage.removeItem('sessionStart');
+    localStorage.removeItem('lastActivity');
     window.location.href = '/';
+  };
+
+  const sectionProps = {
+    content,
+    onChange: handleChange,
+    onArrayChange: handleArrayChange,
   };
 
   return (
@@ -109,7 +164,8 @@ const Editor = () => {
             <div>
               <h1 className="text-3xl font-bold text-gray-800">Editor de Contenidos</h1>
               <p className="text-sm text-gray-500 mt-1">
-                Sesión expira en: <span className="font-mono font-semibold">{timeRemaining}</span>
+                Sesión expira en:{' '}
+                <span className="font-mono font-semibold">{timeRemaining}</span>
               </p>
             </div>
             <button
@@ -120,340 +176,17 @@ const Editor = () => {
             </button>
           </div>
 
-          {/* Hero Section */}
-          <section className="mb-8 border-b pb-8">
-            <h2 className="text-2xl font-bold text-gray-700 mb-4">Hero / Portada</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Nombre</label>
-                <input
-                  type="text"
-                  value={content.hero.name}
-                  onChange={(e) => handleChange('hero.name', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Rol</label>
-                <input
-                  type="text"
-                  value={content.hero.role}
-                  onChange={(e) => handleChange('hero.role', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                />
-              </div>
-              
-              <div className="mt-4">
-                <h3 className="font-bold text-gray-700 mb-2">Links de Navegación</h3>
-                {content.hero.links.map((link, index) => (
-                  <div key={index} className="grid grid-cols-2 gap-4 mb-2">
-                    <input
-                      type="text"
-                      value={link.name}
-                      onChange={(e) => handleArrayChange('hero.links', index, 'name', e.target.value)}
-                      placeholder="Nombre"
-                      className="px-4 py-2 border rounded text-black"
-                    />
-                    <input
-                      type="text"
-                      value={link.href}
-                      onChange={(e) => handleArrayChange('hero.links', index, 'href', e.target.value)}
-                      placeholder="URL"
-                      className="px-4 py-2 border rounded text-black"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <HeroSection {...sectionProps} />
+          <AboutSection {...sectionProps} />
+          <PhilosophySection {...sectionProps} />
+          <ServicesSection {...sectionProps} />
+          <StrategiesSection {...sectionProps} />
+          <CuponSection {...sectionProps} />
+          <ProyectosSection {...sectionProps} />
+          <TestimoniosSection {...sectionProps} />
+          <KitsSection {...sectionProps} />
+          <FooterSection {...sectionProps} />
 
-          {/* About Section */}
-          <section className="mb-8 border-b pb-8">
-            <h2 className="text-2xl font-bold text-gray-700 mb-4">Sobre Mí</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Título</label>
-                <input
-                  type="text"
-                  value={content.about.title}
-                  onChange={(e) => handleChange('about.title', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Descripción</label>
-                <textarea
-                  value={content.about.description}
-                  onChange={(e) => handleChange('about.description', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                  rows="3"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Subtítulo (texto destacado)</label>
-                <textarea
-                  value={content.about.subtitle}
-                  onChange={(e) => handleChange('about.subtitle', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                  rows="3"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Contenido</label>
-                <textarea
-                  value={content.about.content}
-                  onChange={(e) => handleChange('about.content', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                  rows="3"
-                />
-              </div>
-            </div>
-          </section>
-
-          {/* Philosophy Section */}
-          <section className="mb-8 border-b pb-8">
-            <h2 className="text-2xl font-bold text-gray-700 mb-4">Filosofía</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Título Principal</label>
-                <input
-                  type="text"
-                  value={content.philosophy.mainTitle}
-                  onChange={(e) => handleChange('philosophy.mainTitle', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Introducción</label>
-                <textarea
-                  value={content.philosophy.intro}
-                  onChange={(e) => handleChange('philosophy.intro', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                  rows="2"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Descripción</label>
-                <textarea
-                  value={content.philosophy.description}
-                  onChange={(e) => handleChange('philosophy.description', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                  rows="3"
-                />
-              </div>
-            </div>
-          </section>
-
-          {/* Services Section */}
-          <section className="mb-8 border-b pb-8">
-            <h2 className="text-2xl font-bold text-gray-700 mb-4">Servicios</h2>
-            {content.services.map((service, index) => (
-              <div key={index} className="mb-6 p-4 bg-gray-50 rounded">
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-gray-700 font-bold mb-2">Título del Servicio {index + 1}</label>
-                    <input
-                      type="text"
-                      value={service.title}
-                      onChange={(e) => handleArrayChange('services', index, 'title', e.target.value)}
-                      className="w-full px-4 py-2 border rounded text-black"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-bold mb-2">Descripción</label>
-                    <textarea
-                      value={service.description}
-                      onChange={(e) => handleArrayChange('services', index, 'description', e.target.value)}
-                      className="w-full px-4 py-2 border rounded text-black"
-                      rows="5"
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </section>
-
-          {/* Why Us Section */}
-          <section className="mb-8 border-b pb-8">
-            <h2 className="text-2xl font-bold text-gray-700 mb-4">Por Qué Elegirnos</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Título</label>
-                <input
-                  type="text"
-                  value={content.whyUs.title}
-                  onChange={(e) => handleChange('whyUs.title', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                />
-              </div>
-              {content.whyUs.reasons.map((reason, index) => (
-                <div key={index} className="p-4 bg-gray-50 rounded">
-                  <div className="grid grid-cols-3 gap-4 mb-2">
-                    <input
-                      type="text"
-                      value={reason.icon}
-                      onChange={(e) => handleArrayChange('whyUs.reasons', index, 'icon', e.target.value)}
-                      placeholder="Icono"
-                      className="px-4 py-2 border rounded text-black"
-                    />
-                    <input
-                      type="text"
-                      value={reason.title}
-                      onChange={(e) => handleArrayChange('whyUs.reasons', index, 'title', e.target.value)}
-                      placeholder="Título"
-                      className="col-span-2 px-4 py-2 border rounded text-black"
-                    />
-                  </div>
-                  <textarea
-                    value={reason.text}
-                    onChange={(e) => handleArrayChange('whyUs.reasons', index, 'text', e.target.value)}
-                    placeholder="Descripción"
-                    className="w-full px-4 py-2 border rounded text-black"
-                    rows="2"
-                  />
-                </div>
-              ))}
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Texto del botón CTA</label>
-                <input
-                  type="text"
-                  value={content.whyUs.ctaText}
-                  onChange={(e) => handleChange('whyUs.ctaText', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                />
-              </div>
-            </div>
-          </section>
-
-          {/* Strategies Section */}
-          <section className="mb-8 border-b pb-8">
-            <h2 className="text-2xl font-bold text-gray-700 mb-4">Estrategias</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Título</label>
-                <input
-                  type="text"
-                  value={content.strategies.title}
-                  onChange={(e) => handleChange('strategies.title', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                />
-              </div>
-              {content.strategies.items.map((item, index) => (
-                <div key={index}>
-                  <label className="block text-gray-700 font-bold mb-2">Estrategia {index + 1}</label>
-                  <textarea
-                    value={item}
-                    onChange={(e) => {
-                      const newItems = [...content.strategies.items];
-                      newItems[index] = e.target.value;
-                      handleChange('strategies.items', newItems);
-                    }}
-                    className="w-full px-4 py-2 border rounded text-black"
-                    rows="3"
-                  />
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Kits Editables Section */}
-          <section className="mb-8 border-b pb-8">
-            <h2 className="text-2xl font-bold text-gray-700 mb-4">Kits Editables</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Título</label>
-                <input
-                  type="text"
-                  value={content.kitsEditables.title}
-                  onChange={(e) => handleChange('kitsEditables.title', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-bold mb-2">Subtítulo</label>
-                <input
-                  type="text"
-                  value={content.kitsEditables.subtitle}
-                  onChange={(e) => handleChange('kitsEditables.subtitle', e.target.value)}
-                  className="w-full px-4 py-2 border rounded text-black"
-                />
-              </div>
-              {content.kitsEditables.kits.map((kit, index) => (
-                <div key={index} className="p-4 bg-gray-50 rounded">
-                  <h3 className="font-bold text-gray-600 mb-3">Kit {index + 1}</h3>
-                  <div className="space-y-3">
-                    <div>
-                      <label className="block text-gray-700 mb-1">Imagen (ruta)</label>
-                      <input
-                        type="text"
-                        value={kit.image}
-                        onChange={(e) => handleArrayChange('kitsEditables.kits', index, 'image', e.target.value)}
-                        className="w-full px-4 py-2 border rounded text-black"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-700 mb-1">Texto alternativo (alt)</label>
-                      <input
-                        type="text"
-                        value={kit.alt}
-                        onChange={(e) => handleArrayChange('kitsEditables.kits', index, 'alt', e.target.value)}
-                        className="w-full px-4 py-2 border rounded text-black"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-700 mb-1">Texto del botón</label>
-                      <input
-                        type="text"
-                        value={kit.buttonLabel}
-                        onChange={(e) => handleArrayChange('kitsEditables.kits', index, 'buttonLabel', e.target.value)}
-                        className="w-full px-4 py-2 border rounded text-black"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-700 mb-1">URL</label>
-                      <input
-                        type="text"
-                        value={kit.href}
-                        onChange={(e) => handleArrayChange('kitsEditables.kits', index, 'href', e.target.value)}
-                        className="w-full px-4 py-2 border rounded text-black"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Footer Section */}
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-700 mb-4">Footer / Contacto</h2>
-            {content.footer.links.map((link, index) => (
-              <div key={index} className="mb-4 p-4 bg-gray-50 rounded">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-gray-700 font-bold mb-2">Texto</label>
-                    <input
-                      type="text"
-                      value={link.text}
-                      onChange={(e) => handleArrayChange('footer.links', index, 'text', e.target.value)}
-                      className="w-full px-4 py-2 border rounded text-black"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-bold mb-2">URL</label>
-                    <input
-                      type="text"
-                      value={link.url}
-                      onChange={(e) => handleArrayChange('footer.links', index, 'url', e.target.value)}
-                      className="w-full px-4 py-2 border rounded text-black"
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </section>
-
-          {/* Save Button */}
           <div className="mt-8 pt-8 border-t">
             <button
               onClick={handleSave}
@@ -465,9 +198,13 @@ const Editor = () => {
               {saving ? 'Guardando y Desplegando...' : 'Guardar Cambios y Desplegar'}
             </button>
             {message && (
-              <div className={`mt-4 p-4 rounded ${
-                message.includes('✅') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-              }`}>
+              <div
+                className={`mt-4 p-4 rounded ${
+                  message.includes('✅')
+                    ? 'bg-green-100 text-green-700'
+                    : 'bg-red-100 text-red-700'
+                }`}
+              >
                 {message}
               </div>
             )}

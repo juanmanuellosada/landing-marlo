@@ -5,33 +5,47 @@
 ### 1️⃣ Configuración Inicial (solo primera vez)
 
 ```bash
-# Ejecutar setup
-setup.bat
-
-# O manualmente:
 npm install
-copy users.json.example users.json
+
+# Generar el hash de tu contraseña (requiere que estés en app/)
+node scripts/hash-password.js <tu-contraseña>
 ```
 
-Edita `users.json` y cambia la contraseña por defecto.
+Copiá el hash generado y configurá estas variables de entorno en Vercel
+(Settings → Environment Variables):
+
+| Variable | Valor |
+|---|---|
+| `EDITOR_USERS` | `marloeditor:$2b$12$<hash-generado>` |
+| `EDITOR_SESSION_SECRET` | cadena aleatoria larga (`openssl rand -hex 32`) |
+| `GITHUB_TOKEN` | Personal Access Token con scope **repo** (ver nota abajo) |
+| `GITHUB_OWNER` | Tu usuario de GitHub |
+| `GITHUB_REPO` | Nombre del repositorio (ej: `landing-marlo`) |
+| `GITHUB_BRANCH` | Rama a usar (ej: `main`) |
+| `CONTENT_FILE_PATH` | `app/src/content.json` |
+
+> **Cómo crear el GITHUB_TOKEN:** Ve a https://github.com/settings/tokens → "Generate new token (classic)" → scope **repo** → copiá el token generado.
+
+> **Root Directory en Vercel:** Al importar el proyecto, configurá Root Directory como `app` (no la raíz del repo).
 
 ---
 
-### 2️⃣ Iniciar el Sistema
+### 2️⃣ Iniciar el Sistema (desarrollo local)
+
+Requiere [Vercel CLI](https://vercel.com/docs/cli) instalado y proyecto vinculado:
 
 ```bash
-npm run dev:full
+vercel dev
 ```
 
-Esto inicia:
-- ✅ Frontend en http://localhost:5173
-- ✅ Backend en http://localhost:3001
+Esto inicia el frontend (Vite) y las funciones serverless en el mismo puerto,
+idéntico a producción. Accedé al editor en la URL que muestre `vercel dev`.
 
 ---
 
 ### 3️⃣ Editar Contenidos
 
-1. Ve a: http://localhost:5173/editor
+1. Ve a: http://localhost:3000/editor  (o la URL que indique `vercel dev`)
 2. Login con tus credenciales
 3. Edita los textos
 4. Clic en "Guardar Cambios y Desplegar"
@@ -44,43 +58,41 @@ Esto inicia:
 | Archivo | Para qué sirve |
 |---------|----------------|
 | `src/content.json` | 📝 Todos los textos de la landing |
-| `users.json` | 👤 Usuarios autorizados |
-| `server.js` | ⚙️ API backend |
+| `api/login.js` | 🔑 Endpoint de autenticación (serverless) |
+| `api/save-content.js` | 💾 Endpoint de guardado (serverless) |
+| `scripts/hash-password.js` | 🔒 Generador de hash para EDITOR_USERS |
 
 ---
 
 ## 🔧 Comandos Útiles
 
 ```bash
-# Iniciar todo
-npm run dev:full
+# Desarrollo local (funciones serverless + frontend juntos)
+vercel dev
 
-# Solo frontend
+# Solo frontend (sin funciones serverless)
 npm run dev
-
-# Solo backend
-npm run server
 
 # Build para producción
 npm run build
+
+# Generar hash de contraseña para EDITOR_USERS
+node scripts/hash-password.js <contraseña>
 ```
 
 ---
 
-## 👥 Gestionar Usuarios
+## 👤 Cambiar Contraseña
 
-Edita `users.json`:
+```bash
+# 1. Generá el nuevo hash
+node scripts/hash-password.js <nueva-contraseña>
 
-```json
-{
-  "users": [
-    {"username": "admin", "password": "mipassword"},
-    {"username": "editor", "password": "otrapass"}
-  ]
-}
+# 2. Copiá el valor de EDITOR_USERS del output y actualizalo en:
+#    Vercel → Settings → Environment Variables → EDITOR_USERS
 ```
 
-Reinicia el servidor después de cambiar usuarios.
+Los cambios aplican en el próximo deploy.
 
 ---
 
@@ -122,14 +134,14 @@ const MiComponente = () => {
 
 ### No puedo conectar al servidor
 ```bash
-# Verifica que el servidor esté corriendo
-npm run server
+# Asegurate de usar vercel dev, no npm run dev:full
+vercel dev
 ```
 
 ### Credenciales inválidas
-- Verifica que `users.json` existe
-- Verifica que el formato JSON sea correcto
-- Reinicia el servidor
+- Verificá que `EDITOR_USERS` en Vercel tenga el formato `username:$2b$12$...`
+- El hash debe generarse con `node scripts/hash-password.js`
+- Verificá que `EDITOR_SESSION_SECRET` esté configurado
 
 ### Los cambios no se despliegan
 - Verifica la consola del servidor
@@ -138,23 +150,18 @@ npm run server
 
 ---
 
-## 📚 Más Información
-
-- **Documentación completa:** `README-EDITOR.md`
-- **Resumen técnico:** `RESUMEN-IMPLEMENTACION.md`
-
 ---
 
 ## ✅ Checklist de Deployment
 
 Antes de usar en producción:
 
-- [ ] Cambiar contraseñas por defecto en `users.json`
-- [ ] Configurar Git en el servidor
-- [ ] Verificar que el pipeline CI/CD funcione
-- [ ] Probar el flujo completo de edición
+- [ ] Configurar `EDITOR_USERS` con hash bcrypt (no texto plano)
+- [ ] Configurar `EDITOR_SESSION_SECRET` con cadena aleatoria fuerte
+- [ ] Configurar `GITHUB_TOKEN`, `GITHUB_OWNER`, `GITHUB_REPO` en Vercel
+- [ ] Verificar que el pipeline CI/CD de Vercel esté activo
+- [ ] Probar el flujo completo de edición en un preview deploy
 - [ ] Hacer backup del `content.json` original
-- [ ] Documentar usuarios autorizados
 
 ---
 
@@ -177,4 +184,4 @@ Antes de usar en producción:
 
 ---
 
-**¿Preguntas?** Consulta `README-EDITOR.md` para más detalles.
+**¿Preguntas?** Revisá el checklist de deployment más arriba o los logs en Vercel → Deployments → Functions.

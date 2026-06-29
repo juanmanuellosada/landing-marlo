@@ -8,7 +8,7 @@ export const CuponCard = ({ cupon, size = 'banner' }) => {
     subtitle = 'ES TU MOMENTO PARA MEJORAR TU MARCA',
     badgeDiscount = '-40%',
     badgeText = 'DE DESCUENTO EN CUALQUIER KIT',
-    bgImage = './images/cupon-bg.jpg',
+    bgImage = '/images/cupon-bg.jpg',
   } = cupon;
 
   const isPopup = size === 'popup';
@@ -91,7 +91,7 @@ export const CuponCard = ({ cupon, size = 'banner' }) => {
               aria-hidden="true"
             >
               <path
-                fill="#fa5c04"
+                fill="var(--color-brand-orange)"
                 d="M100,4 L114,18 L132,10 L140,28 L160,26 L162,46 L181,52 L176,71 L194,82 L182,98 L196,114 L181,127 L189,146 L171,154 L172,174 L153,174 L146,192 L128,184 L114,196 L100,184 L86,196 L72,184 L54,192 L47,174 L28,174 L29,154 L11,146 L19,127 L4,114 L18,98 L6,82 L24,71 L19,52 L38,46 L40,26 L60,28 L68,10 L86,18 Z"
               />
             </svg>
@@ -124,7 +124,7 @@ const Cupon = () => {
   const href = cupon.href || 'https://marlocomunica.mitiendanube.com/';
 
   return (
-    <section className="px-4 sm:px-8 md:px-20 pt-12 pb-12">
+    <section className="px-4 sm:px-8 md:px-20 pt-12 pb-12 bg-brand-orange">
       <a
         href={href}
         target="_blank"

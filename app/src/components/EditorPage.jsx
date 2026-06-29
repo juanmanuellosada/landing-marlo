@@ -11,8 +11,10 @@ const EditorPage = () => {
   const WARNING_TIME = 2 * 60 * 1000; // Mostrar advertencia 2 min antes
   const ABSOLUTE_TIMEOUT = 2 * 60 * 60 * 1000; // 2 horas máximo
 
-  const logout = useCallback(() => {
-    localStorage.removeItem('editorAuth');
+  const logout = useCallback(async () => {
+    try {
+      await fetch('/api/logout', { method: 'POST', credentials: 'include' });
+    } catch { /* noop — limpiamos estado local de todas formas */ }
     localStorage.removeItem('sessionStart');
     localStorage.removeItem('lastActivity');
     setIsAuthenticated(false);
@@ -20,20 +22,14 @@ const EditorPage = () => {
   }, []);
 
   const updateActivity = useCallback(() => {
-    const now = Date.now();
-    localStorage.setItem('lastActivity', now.toString());
+    localStorage.setItem('lastActivity', Date.now().toString());
     setShowWarning(false);
   }, []);
 
   const checkSession = useCallback(() => {
-    const auth = localStorage.getItem('editorAuth');
     const sessionStart = parseInt(localStorage.getItem('sessionStart') || '0');
     const lastActivity = parseInt(localStorage.getItem('lastActivity') || '0');
     const now = Date.now();
-
-    if (auth !== 'true') {
-      return false;
-    }
 
     // Verificar timeout absoluto
     if (now - sessionStart > ABSOLUTE_TIMEOUT) {
@@ -63,17 +59,23 @@ const EditorPage = () => {
     setShowWarning(false);
   }, [updateActivity]);
 
+  // Verificar sesión con el servidor al montar (reemplaza la comprobación de localStorage)
   useEffect(() => {
-    // Verificar si hay una sesión activa al montar
-    const auth = localStorage.getItem('editorAuth');
-    if (auth === 'true') {
-      const isValid = checkSession();
-      if (isValid) {
-        setIsAuthenticated(true);
-        updateActivity();
-      }
-    }
-  }, [checkSession, updateActivity]);
+    const verifyServerSession = async () => {
+      try {
+        const res = await fetch('/api/verify', { credentials: 'include' });
+        if (res.ok) {
+          // Restaurar sessionStart si no existe (ej: tras limpiar localStorage)
+          if (!localStorage.getItem('sessionStart')) {
+            localStorage.setItem('sessionStart', Date.now().toString());
+          }
+          setIsAuthenticated(true);
+          updateActivity();
+        }
+      } catch { /* noop — red error o servidor caído; mostramos login */ }
+    };
+    verifyServerSession();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!isAuthenticated) return;
@@ -81,20 +83,15 @@ const EditorPage = () => {
     // Verificar sesión cada minuto
     const intervalId = setInterval(() => {
       checkSession();
-    }, 60 * 1000); // Cada 1 minuto
+    }, 60 * 1000);
 
     // Detectar actividad del usuario
     const events = ['mousedown', 'keydown', 'scroll', 'touchstart'];
-    
-    events.forEach(event => {
-      document.addEventListener(event, updateActivity);
-    });
+    events.forEach(event => document.addEventListener(event, updateActivity));
 
     return () => {
       clearInterval(intervalId);
-      events.forEach(event => {
-        document.removeEventListener(event, updateActivity);
-      });
+      events.forEach(event => document.removeEventListener(event, updateActivity));
     };
   }, [isAuthenticated, checkSession, updateActivity]);
 

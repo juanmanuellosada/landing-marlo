@@ -13,6 +13,7 @@ const Login = ({ onLoginSuccess }) => {
       // Llamar a la API para validar usuario
       const response = await fetch('/api/login', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -22,12 +23,11 @@ const Login = ({ onLoginSuccess }) => {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        localStorage.setItem('editorAuth', 'true');
         onLoginSuccess();
       } else {
         setError('Usuario o contraseña incorrectos');
       }
-    } catch (err) {
+    } catch {
       setError('Error al conectar con el servidor');
     }
   };

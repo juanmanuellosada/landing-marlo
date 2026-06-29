@@ -1,13 +1,61 @@
+/* ── Gilroy self-hosted web font ─────────────────────────────────────────────
+   Free tier: Light (300) + ExtraBold (800) only.
+   License: Radomir Tinkov Free Font EULA (see /fonts/Radomir Tinkov Free Font EULA .pdf)
+   ─────────────────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Gilroy';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Gilroy-Light.woff2') format('woff2'),
+       url('/fonts/Gilroy-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Gilroy-ExtraBold.woff2') format('woff2'),
+       url('/fonts/Gilroy-ExtraBold.otf') format('opentype');
+}
+
 @import 'tailwindcss';
 
 @theme {
+  /*
+   * Color tokens
+   * brand-orange / brand-bg  — primary orange surface (#fa5c04)
+   * brand-dark               — dark espresso brown used for contrast surfaces (#371a09)
+   * surface-cream            — cream/beige alternating section background (Phase 4)
+   * charcoal                 — dark body text on cream sections (Phase 4)
+   */
   --color-brand-orange: #fa5c04;
   --color-brand-bg: #fa5c04;
+  --color-brand-dark: #371a09;
+  --color-surface-cream: #fdf4e7;
+  --color-charcoal: #1a1a1a;
+  /* Soft peach used for the active nav-link indicator on the orange bar */
+  --color-nav-active: #ffd9b3;
 
-  --font-sans: 'Helvetica World', Helvetica, Roboto, Arial, sans-serif;
-  --font-garet: 'Garet', 'Montserrat', sans-serif;
-  --font-neulis: 'Neulis Alt', 'Inter', sans-serif;
-  --font-agrandir: 'Agrandir', 'Work Sans', sans-serif;
+  /*
+   * Font substitution mapping (self-hosted Gilroy free tier — 2 weights only):
+   *   Neulis Alt  → Gilroy  (display/headings → ExtraBold 800)
+   *   Agrandir    → Gilroy  (display → ExtraBold 800)
+   *   Garet       → Gilroy  (display → ExtraBold 800)
+   *   Helvetica World → Gilroy  (body/UI text → Light 300)
+   *
+   * CSS font-weight matching with only 300 + 800 available:
+   *   font-light (300) → Light ✓   font-normal/medium (400/500) → Light (300)
+   *   font-semibold/bold (600/700) → ExtraBold (800, next heavier)
+   *   font-extrabold (800) → ExtraBold ✓   font-black (900) → ExtraBold (800)
+   *
+   * Token names preserved so existing font-* utility classes keep working.
+   */
+  --font-sans: 'Gilroy', ui-sans-serif, system-ui, sans-serif;
+  --font-garet: 'Gilroy', ui-sans-serif, system-ui, sans-serif;
+  --font-neulis: 'Gilroy', ui-sans-serif, system-ui, sans-serif;
+  --font-agrandir: 'Gilroy', ui-sans-serif, system-ui, sans-serif;
 
   --animate-cupon-pulse: cupon-pulse 2.4s ease-in-out infinite;
   --animate-cupon-wiggle: cupon-wiggle 2.8s ease-in-out infinite;
@@ -82,6 +130,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Push anchor-jump targets below the fixed navbar (~56px) */
+[id] {
+  scroll-margin-top: 3.5rem;
+}
+
 :root {
   background-color: var(--color-brand-orange);
   color: white;
@@ -115,5 +168,36 @@ body {
 @media (min-width: 768px) {
   .testimonios-card {
     width: clamp(480px, 42vw, 640px);
+  }
+}
+
+/* ── Motion accessibility ───────────────────────────────────────────────────
+   Disable or neutralise all non-essential animations when the user has
+   requested reduced motion. Content stays visible; only kinetic effects stop.
+   ─────────────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Marquee (Marquee.jsx + Services.jsx) */
+  .animate-marquee,
+
+  /* Coupon banner pulse / wiggle / shine (Cupon.jsx) */
+  .animate-cupon-pulse,
+  .animate-cupon-wiggle,
+  .animate-cupon-shine,
+
+  /* Coupon popup entrance (CuponPopup.jsx) */
+  .animate-cupon-popup-in,
+  .animate-cupon-overlay-in,
+
+  /* Lightbox entrance (ui/Lightbox.jsx) */
+  .animate-lightbox-overlay-in,
+  .animate-lightbox-in,
+
+  /* Badge pulse (reserved token, kept here for completeness) */
+  .animate-badge-pulse {
+    animation: none;
   }
 }

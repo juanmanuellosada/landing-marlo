@@ -33,3 +33,7 @@ users.json
 
 # Vercel
 .vercel
+
+# Local backups (not for repo/prod)
+public/images/_originals/
+src/content.backup.json

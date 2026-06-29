@@ -1,33 +1,58 @@
 {
   "hero": {
-    "name": "Mariana Losada",
-    "role": "CEO MARLOCOMUNICA",
-    "headline": "Tu marca creciendo en redes, sin estrés.",
-    "subtitle": "Gestionamos tu presencia digital con estrategia y contenido fiel a la esencia de tu marca.",
-    "links": [
+    "headline": [
+      { "text": "Todo lo que ", "emphasis": false },
+      { "text": "necesitas", "emphasis": true },
+      { "text": " para hacer ", "emphasis": false },
+      { "text": "crecer", "emphasis": true },
+      { "text": " tu negocio", "emphasis": false }
+    ],
+    "subtitle": "Las herramientas que usamos en nuestro estudio para nuestra cuenta y la de clientes.",
+    "tagline": "Creá un negocio que trabaje para vos",
+    "nav": [
+      { "name": "INICIO", "href": "#top" },
+      { "name": "KITS Y RECURSOS", "href": "#kits-recursos" },
+      { "name": "ACERCA DE", "href": "/about" },
+      { "name": "PROYECTOS", "href": "#proyectos" },
+      { "name": "TESTIMONIOS", "href": "#testimonios" },
+      { "name": "TIENDA", "href": "https://marlocomunica.mitiendanube.com/" }
+    ],
+    "products": [
       {
-        "name": "SOBRE MÍ",
-        "href": "#about"
+        "title": "Tu estrategia digital en 5 pasos",
+        "badge": "🔥 Mas vendido",
+        "image": "/images/productos/estrategia-digital.webp",
+        "href": "https://marlocomunica.mitiendanube.com/productos/kit-30-dias-para-crecer-en-redes-tu-estrategia-digital-en-5-pasos/"
       },
       {
-        "name": "TIENDA",
-        "href": "https://marlocomunica.mitiendanube.com/"
+        "title": "Kit de plantillas para freelancers",
+        "badge": "⭐️ Mas popular",
+        "image": "/images/productos/plantillas-freelancers.webp",
+        "href": "https://marlocomunica.mitiendanube.com/productos/kit-organizacion-freelancer/"
       },
       {
-        "name": "RECURSOS",
-        "href": "https://marlocomunica.mitiendanube.com/ebooks/"
+        "title": "Analisis de perfil en redes sociales",
+        "badge": "🚀 Ideal emprendedores",
+        "image": "/images/productos/analisis-perfil.webp",
+        "href": "https://marlocomunica.mitiendanube.com/productos/auditoria-de-marca-instagram-no-es-un-diagnostico-mas/"
       },
       {
-        "name": "CURSOS",
-        "href": "https://marlocomunica.mitiendanube.com/cursos-manuales"
+        "title": "Calendario de contenidos",
+        "badge": "🔥 Mas elegido",
+        "image": "/images/productos/calendario-contenidos.webp",
+        "href": "https://marlocomunica.mitiendanube.com/productos/calendariode-contenidos-para-instagram-1yens/"
       },
       {
-        "name": "CONTACTO",
-        "href": "#contact"
+        "title": "Ebook: Canva para emprendedores",
+        "badge": "",
+        "image": "/images/productos/ebook-canva.webp",
+        "href": "https://marlocomunica.mitiendanube.com/productos/curso-ebook-canva-para-principiantes/"
       },
       {
-        "name": "PROYECTOS",
-        "href": "#proyectos"
+        "title": "Ebook consejos y tecnicas de marketing",
+        "badge": "",
+        "image": "/images/productos/ebook-marketing.webp",
+        "href": "https://marlocomunica.mitiendanube.com/productos/ebook-mejora-tus-procesos-de-compra/"
       }
     ],
     "socialMedia": {
@@ -48,25 +73,29 @@
     "intro": "En un mundo donde todo parece ir demasiado rápido, trabajamos con Slow Marketing Method, invitándote a hacer las cosas de manera diferente.",
     "description": "En lugar de perseguir métricas vacías y resultados efímeros, creamos estrategias de redes sociales que generan conexiones genuinas, engagement real y crecimiento sostenible.",
     "highlights": [
-      "+Calma",
-      "-Estrés",
-      "+Resultados"
+      "✅ Más calma",
+      "🚨 Menos estrés",
+      "🚀 Más resultados"
     ]
   },
   "services": [
     {
+      "category": "🎨 Branding",
       "title": "Branding & Identidad Visual",
       "description": "Que tu marca se reconozca y genere una conexión emocional real con tu público.\n\nConstruimos tu identidad desde cero: definimos su esencia, personalidad, público ideal y el mensaje que quiere transmitir.\n\nA partir de eso, desarrollamos una identidad visual coherente que refleje todo lo que tu marca representa."
     },
     {
+      "category": "✏️ Diseño",
       "title": "Diseño Gráfico & Piezas Digitales",
       "description": "Que cada pieza de tu marca se vea profesional y coherente. Diseñamos todo tu material visual —logo, identidad, papelería, contenido y flyers para redes— alineado con la identidad de tu marca."
     },
     {
+      "category": "📊 Ads",
       "title": "Ads Manager | Meta Ads",
       "description": "Llegá a nuevos clientes y aumentá la visibilidad de tu negocio.\nCreamos y gestionamos campañas publicitarias en Instagram y Facebook para promocionar tus productos o servicios de forma estratégica y efectiva."
     },
     {
+      "category": "📲 Redes",
       "title": "Gestión de Redes | Community & Social Media Management",
       "description": "¿Te cuesta mantener activas tus redes? Nosotros nos encargamos.\nGestionamos tu cuenta de forma estratégica para que tu marca tenga una presencia profesional, constante y alineada con tus objetivos.\nIncluye análisis de marca, estrategia, diseño, redacción y publicación de contenido para Instagram, Facebook y TikTok.\n📈 Más visibilidad, más interacción y una comunidad conectada con tu marca."
     }
@@ -101,9 +130,21 @@
   "strategies": {
     "title": "Cómo hacemos crecer tu marca",
     "items": [
-      "📲 Creación de contenido: Desarrollamos un calendario editorial con publicaciones semanales para Instagram, Facebook o TikTok, incluyendo redacción y diseño profesional.",
-      "🤝 Gestión de comunidad: Respondemos comentarios y fomentamos la interacción con dinámicas que fortalecen el vínculo con tu audiencia.",
-      "📈 Publicidad y colaboraciones: Creamos y gestionamos campañas publicitarias y colaboraciones estratégicas para aumentar el alcance y atraer nuevos seguidores."
+      {
+        "icon": "📲",
+        "title": "Creación de contenido",
+        "description": "Desarrollamos un calendario editorial con publicaciones semanales para Instagram, Facebook o TikTok, incluyendo redacción y diseño profesional."
+      },
+      {
+        "icon": "🤝",
+        "title": "Gestión de comunidad",
+        "description": "Respondemos comentarios y fomentamos la interacción con dinámicas que fortalecen el vínculo con tu audiencia."
+      },
+      {
+        "icon": "📈",
+        "title": "Publicidad y colaboraciones",
+        "description": "Creamos y gestionamos campañas publicitarias y colaboraciones estratégicas para aumentar el alcance y atraer nuevos seguidores."
+      }
     ]
   },
   "cupon": {
@@ -115,7 +156,7 @@
     "badgeDiscount": "-40%",
     "badgeText": "DE DESCUENTO EN CUALQUIER KIT",
     "href": "https://marlocomunica.mitiendanube.com/ebooks/kits-freelancers/",
-    "bgImage": "./images/cupon-bg.jpg",
+    "bgImage": "/images/cupon-bg.jpg",
     "popup": {
       "enabled": true,
       "delayMs": 800
@@ -127,14 +168,14 @@
     "kits": [
       {
         "heading": "01 - Kit plantillas editables para mejorar tus procesos de venta",
-        "image": "./images/kit-organizacion-freelancer.png",
+        "image": "/images/kit-organizacion-freelancer.webp",
         "alt": "Kit Organización Freelancer: incluye guía de bienvenida, brief, contrato, propuesta, presupuesto y reporte — todo editable en Canva",
         "buttonLabel": "Comprar Kit Organización Freelancer",
         "href": "https://marlocomunica.mitiendanube.com/productos/kit-organizacion-freelancer/"
       },
       {
         "heading": "02 - Nuestro método para optimizar redes y crecer",
-        "image": "./images/kit-digital-estrategia.png",
+        "image": "/images/kit-digital-estrategia.webp",
         "alt": "Kit Digital: Tu estrategia en 5 pasos — ebook y guías editables para optimizar y crecer en redes sociales",
         "buttonLabel": "Comprar Kit Nuestro Método",
         "href": "https://marlocomunica.mitiendanube.com/productos/kit-30-dias-para-crecer-en-redes-tu-estrategia-digital-en-5-pasos/"
@@ -147,54 +188,160 @@
     "ctaText": "Ver más",
     "ctaHref": "https://www.behance.net/marlocomunica",
     "logos": [
-      "./images/proyectos/1.png",
-      "./images/proyectos/2.png",
-      "./images/proyectos/3.png",
-      "./images/proyectos/4.png",
-      "./images/proyectos/5.png",
-      "./images/proyectos/6.png",
-      "./images/proyectos/7.png",
-      "./images/proyectos/8.png",
-      "./images/proyectos/9.png",
-      "./images/proyectos/10.png",
-      "./images/proyectos/11.png",
-      "./images/proyectos/12.png",
-      "./images/proyectos/13.png",
-      "./images/proyectos/14.png",
-      "./images/proyectos/15.png",
-      "./images/proyectos/16.png",
-      "./images/proyectos/17.png"
+      "/images/proyectos/1.webp",
+      "/images/proyectos/2.webp",
+      "/images/proyectos/3.webp",
+      "/images/proyectos/4.webp",
+      "/images/proyectos/5.webp",
+      "/images/proyectos/6.webp",
+      "/images/proyectos/7.webp",
+      "/images/proyectos/8.webp",
+      "/images/proyectos/9.webp",
+      "/images/proyectos/10.webp",
+      "/images/proyectos/11.webp",
+      "/images/proyectos/12.webp",
+      "/images/proyectos/13.webp",
+      "/images/proyectos/14.webp",
+      "/images/proyectos/15.webp",
+      "/images/proyectos/16.webp",
+      "/images/proyectos/17.webp"
     ]
   },
   "testimonios": {
     "title": "Lo que dicen nuestros clientes",
-    "subtitle": "Resultados reales de marcas reales.",
-    "images": [
-      "/images/testimonios/testimonio-1.webp",
-      "/images/testimonios/testimonio-2.webp",
-      "/images/testimonios/testimonio-3.webp",
-      "/images/testimonios/testimonio-4.webp",
-      "/images/testimonios/testimonio-5.webp",
-      "/images/testimonios/testimonio-6.webp",
-      "/images/testimonios/testimonio-7.webp",
-      "/images/testimonios/testimonio-8.webp",
-      "/images/testimonios/testimonio-9.webp",
-      "/images/testimonios/testimonio-10.webp",
-      "/images/testimonios/testimonio-11.webp",
-      "/images/testimonios/testimonio-12.webp",
-      "/images/testimonios/testimonio-13.webp",
-      "/images/testimonios/testimonio-14.png"
+    "subtitle": "Historias que elegimos porque muestran un antes y un después concreto, no frases sueltas.",
+    "items": [
+      {
+        "quote": "Quería arrancar con mis redes pero hacerlo bien desde el principio, y buscando apareció Marlo. Disfruto mucho de tu soltura y frescura para trabajar. Gracias por ayudarme a materializar lo que imaginaba para mis redes.",
+        "highlight": "materializar lo que imaginaba para mis redes",
+        "badge": "✨ Hizo realidad lo que imaginaba",
+        "name": "Contable Belén Roo",
+        "handle": "@contable.belenroo",
+        "stars": 5
+      },
+      {
+        "quote": "Estoy feliz de haberme animado a delegar las redes. Al dejar todo en sus manos sentí un alivio inexplicable, hasta descubrí que tenía tiempo para mí. Pasamos de 2000 visualizaciones a 18 mil. Marlo es increíble, hace magia.",
+        "highlight": "Pasamos de 2000 visualizaciones a 18 mil",
+        "badge": "🚀 De 2.000 a 18.000 views",
+        "name": "Celeste · Queen Roots",
+        "handle": "",
+        "stars": 5
+      },
+      {
+        "quote": "Empezar a gestionar redes con vos es un giro de 180 grados. La cuenta estaba estancada, sin estética, y le diste identidad a mi IG. Se nota que te gusta lo que hacés y lo hacés con pasión. Sos súper atenta, estás en todo.",
+        "highlight": "un giro de 180 grados",
+        "badge": "🎨 Le dio identidad a su IG",
+        "name": "Unidos Garage",
+        "handle": "@unidos_garage",
+        "stars": 5
+      },
+      {
+        "quote": "Me encantó todo, las ideas, el estilo. Están teniendo muy buena llegada y subieron las estadísticas. Y esto de tener todo organizado es un golazo. Estoy súper contenta.",
+        "highlight": "subieron las estadísticas",
+        "badge": "📈 Más alcance y orden",
+        "name": "Peponas",
+        "handle": "@peponasok",
+        "stars": 5
+      },
+      {
+        "quote": "Estoy súper contenta con la nueva identidad del estudio. Gracias Marlo, sobre todo por la paciencia y por lo rápido que supiste entender lo que quería: algo fino y serio. Sos una genia total, vamos por más.",
+        "highlight": "la nueva identidad del estudio",
+        "badge": "💼 Nueva identidad profesional",
+        "name": "Abogada Cipolla",
+        "handle": "@abogadacipolla",
+        "stars": 5
+      },
+      {
+        "quote": "¡Me llegó todo! Genial Marlo, muchas gracias. Me re gustó todo, posta re contento con lo que hiciste.",
+        "highlight": "re contento con lo que hiciste",
+        "badge": "🙌 Cliente feliz",
+        "name": "Agustín Diuorno",
+        "handle": "@agustindiuorno1",
+        "stars": 5
+      },
+      {
+        "quote": "Mi experiencia con mi CM está superando mis expectativas. Sus propuestas son divertidas, ingeniosas y cero complicadas. Desde que empezó a manejar mis redes sentí el comienzo de algo mejor, se nota mucho el cambio en el feed. I recommend her.",
+        "highlight": "está superando mis expectativas",
+        "badge": "💫 Superó sus expectativas",
+        "name": "Ray of Light",
+        "handle": "@rayoflight.classes",
+        "stars": 5
+      },
+      {
+        "quote": "¡Estoy más que feliz! Estaba re parada la red y de repente ver esas estadísticas es más de lo que esperaba. Me dan ganas de apostar a mi pequeño lugar que hice con tanto amor. ¡Quiero llorar de la alegría!",
+        "highlight": "es más de lo que esperaba",
+        "badge": "✨ Resultados que emocionan",
+        "name": "One Secret",
+        "handle": "@estetica.onesecret",
+        "stars": 5
+      },
+      {
+        "quote": "Antes mi Instagram era un desastre, sin un norte. Ahora se ve más ordenado, prolijo y profesional: se entiende que soy abogada y a qué me dedico. Noto que me eligen más y no cuestionan mi profesionalismo.",
+        "highlight": "me eligen más y no cuestionan mi profesionalismo",
+        "badge": "⚖️ Más profesional y elegida",
+        "name": "Abogada Cipolla",
+        "handle": "@abogadacipolla",
+        "stars": 5
+      },
+      {
+        "quote": "Necesitaba ordenar mi perfil, que la gente entendiera qué hago y tener visibilidad. La paciencia y que les gusta de verdad lo que hacen se nota y transmite mucho. Me siento acompañada. Recomiendo al 100%.",
+        "highlight": "Recomiendo al 100%",
+        "badge": "🧘 Perfil ordenado y claro",
+        "name": "Rame Masajes",
+        "handle": "@rame.masajess",
+        "stars": 5
+      },
+      {
+        "quote": "Sumar el botón de WhatsApp dio súper resultados: mucha gente me escribió directo y pude iniciar charlas y ventas mayoristas. Con la visual más aesthetic el perfil tiene otro encanto, y recibí muchos comentarios positivos por mi nuevo logo más humano.",
+        "highlight": "pude iniciar charlas y ventas mayoristas",
+        "badge": "🛒 Más consultas y ventas",
+        "name": "Buena Vibra Cerámica",
+        "handle": "@buenavibra.ceramica",
+        "stars": 5
+      },
+      {
+        "quote": "El gimnasio tenía movimiento pero no convertíamos seguidores en consultas reales. En menos de dos meses llegaron más de 8 clientes nuevos solo por Instagram. Hoy las redes realmente nos ayudan a vender y no quedan solo 'lindas'.",
+        "highlight": "más de 8 clientes nuevos solo por Instagram",
+        "badge": "📈 +8 clientes en 2 meses",
+        "name": "Rompiendo Límites Gym",
+        "handle": "@rompiendolimites.gym",
+        "stars": 5
+      },
+      {
+        "quote": "Arranqué la empresa y no pegaba una con las redes. Me recomendaron a Marlo y fue claro desde el principio: armó un plan para atraer clientes. El proceso fue genial, siempre con claridad y sin volverme loco. No la cambiaría.",
+        "highlight": "un plan para atraer clientes",
+        "badge": "🎯 Un plan claro para crecer",
+        "name": "RF Centro Audiológico",
+        "handle": "@rf.centroaudiologico",
+        "stars": 5
+      },
+      {
+        "quote": "Sentía que la imagen ya no representaba la calidad de la marca. Con el rediseño logramos una identidad mucho más fina, elegante y profesional. Muchas personas nos dijeron que la marca se percibe muchísimo más premium y confiable.",
+        "highlight": "muchísimo más premium y confiable",
+        "badge": "💎 Una marca más premium",
+        "name": "Kaori Hogar",
+        "handle": "@kaori_hogar",
+        "stars": 5
+      },
+      {
+        "quote": "Trabajar la identidad de Wody nos ayudó a ordenar la marca y darle una estética mucho más profesional. Aunque todavía tenemos pocos seguidores, empezamos a notar algo más importante: llegan clientes reales que vienen mucho más decididos.",
+        "highlight": "llegan clientes reales",
+        "badge": "🚀 Clientes reales, no solo likes",
+        "name": "Wody",
+        "handle": "@wody.app",
+        "stars": 5
+      }
     ]
   },
   "footer": {
     "links": [
       {
-        "image": "./images/tiendanube.png",
+        "image": "/images/tiendanube.png",
         "text": "Usá mi link de afiliado para un 25% OFF en tu primer mes",
         "url": "https://www.tiendanube.com/partners/Marlocomunica"
       },
       {
-        "image": "./images/canva-logo.avif",
+        "image": "/images/canva-logo.avif",
         "text": "Aprendé a diseñar con Canva haciendo click acá",
         "url": "https://marlocomunica.mitiendanube.com/productos/curso-ebook-canva-para-principiantes/"
       },

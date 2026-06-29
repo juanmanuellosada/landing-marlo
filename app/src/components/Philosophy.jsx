@@ -1,25 +1,27 @@
 import content from '../content.json';
+import Badge from './ui/Badge';
 
 const Philosophy = () => {
   const { mainTitle, intro, description, highlights } = content.philosophy;
 
   return (
-    <section className="py-20 px-8 md:px-20 bg-white/5">
-      <div className="max-w-4xl mx-auto space-y-12">
-        <div className="bg-brand-orange border-2 border-white p-4 text-center rounded-lg shadow-lg">
-          <h3 className="text-xl md:text-2xl font-bold font-neulis">{mainTitle}</h3>
+    <section className="py-20 px-8 md:px-20 bg-brand-orange text-white">
+      <div className="max-w-4xl mx-auto space-y-6">
+        {/* Title card: dark box on orange for strong contrast */}
+        <div className="bg-brand-dark p-6 text-center rounded-2xl shadow-xl">
+          <h3 className="text-xl md:text-2xl font-bold font-garet">{mainTitle}</h3>
         </div>
-        
-        <div className="space-y-8 text-lg font-garet">
+
+        <div className="space-y-4 text-lg font-garet text-white/90">
           <p>{intro}</p>
           <p>{description}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-bold text-xl text-center font-garet">
+        <div className="flex flex-wrap justify-center gap-4">
           {highlights.map((highlight, index) => (
-            <div key={index} className="p-4 border border-white/30 rounded-lg hover:bg-white/10 transition-colors">
+            <Badge key={index} variant="outline" className="text-base px-5 py-2">
               {highlight}
-            </div>
+            </Badge>
           ))}
         </div>
       </div>

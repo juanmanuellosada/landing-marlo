@@ -26,4 +26,14 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  // Server-side files: use Node.js globals and disable browser/React rules
+  {
+    files: ['api/**/*.js', 'scripts/**/*.js'],
+    languageOptions: {
+      globals: { ...globals.node, fetch: 'readonly' },
+    },
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ])

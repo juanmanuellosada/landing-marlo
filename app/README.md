@@ -37,4 +37,4 @@ This project is deployed on Vercel. Any push to the main branch will automatical
 - Content changes are committed directly to GitHub
 - Session expires after 30 minutes of inactivity or 2 hours maximum
 
-For detailed deployment instructions, see `DEPLOY-VERCEL.md` and `QUICKSTART-VERCEL.md`.
+For detailed deployment instructions, see `GUIA-RAPIDA.md`.
