@@ -1,21 +1,54 @@
 {
   "hero": {
     "headline": [
-      { "text": "Todo lo que ", "emphasis": false },
-      { "text": "necesitas", "emphasis": true },
-      { "text": " para hacer ", "emphasis": false },
-      { "text": "crecer", "emphasis": true },
-      { "text": " tu negocio", "emphasis": false }
+      {
+        "text": "Todo lo que ",
+        "emphasis": false
+      },
+      {
+        "text": "necesitas",
+        "emphasis": true
+      },
+      {
+        "text": " para hacer ",
+        "emphasis": false
+      },
+      {
+        "text": "crecer",
+        "emphasis": true
+      },
+      {
+        "text": " tu negocio",
+        "emphasis": false
+      }
     ],
     "subtitle": "Las herramientas que usamos en nuestro estudio para nuestra cuenta y la de clientes.",
     "tagline": "Creá un negocio que trabaje para vos",
     "nav": [
-      { "name": "INICIO", "href": "#top" },
-      { "name": "KITS Y RECURSOS", "href": "#kits-recursos" },
-      { "name": "ACERCA DE", "href": "/about" },
-      { "name": "PROYECTOS", "href": "#proyectos" },
-      { "name": "TESTIMONIOS", "href": "#testimonios" },
-      { "name": "TIENDA", "href": "https://marlocomunica.mitiendanube.com/" }
+      {
+        "name": "INICIO",
+        "href": "#top"
+      },
+      {
+        "name": "KITS Y RECURSOS",
+        "href": "#kits-recursos"
+      },
+      {
+        "name": "ACERCA DE",
+        "href": "/about"
+      },
+      {
+        "name": "PROYECTOS",
+        "href": "#proyectos"
+      },
+      {
+        "name": "TESTIMONIOS",
+        "href": "#testimonios"
+      },
+      {
+        "name": "TIENDA",
+        "href": "https://marlocomunica.mitiendanube.com/"
+      }
     ],
     "products": [
       {
@@ -329,6 +362,14 @@
         "badge": "🚀 Clientes reales, no solo likes",
         "name": "Wody",
         "handle": "@wody.app",
+        "stars": 5
+      },
+      {
+        "quote": "El diseño de feed es todo lo que necesitaba, real. No podria hacer eso, estaria años. A mi el calendario me encantó , se super noto la interaccion en el dia a dia y tambien impacto en la cantidad de gente que me hablo para agendar turno. \nTengo muchos pacientes nuevos, y la agenda mega completa, asi que contenta!!! ",
+        "highlight": "Calendario de contenidos + diseño ",
+        "badge": "Un perfil mas ordenado 🚨",
+        "name": "Milagros Casti - Nutricion ",
+        "handle": "mcasti.nutricion",
         "stars": 5
       }
     ]
