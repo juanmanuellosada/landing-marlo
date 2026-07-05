@@ -261,14 +261,6 @@
         "stars": 5
       },
       {
-        "quote": "Me encantó todo, las ideas, el estilo. Están teniendo muy buena llegada y subieron las estadísticas. Y esto de tener todo organizado es un golazo. Estoy súper contenta.",
-        "highlight": "subieron las estadísticas",
-        "badge": "📈 Más alcance y orden",
-        "name": "Peponas",
-        "handle": "@peponasok",
-        "stars": 5
-      },
-      {
         "quote": "Estoy súper contenta con la nueva identidad del estudio. Gracias Marlo, sobre todo por la paciencia y por lo rápido que supiste entender lo que quería: algo fino y serio. Sos una genia total, vamos por más.",
         "highlight": "la nueva identidad del estudio",
         "badge": "💼 Nueva identidad profesional",
@@ -362,6 +354,14 @@
         "badge": "Diseno de identidad visual 🫶🏽",
         "name": "Agustin Diuorno  ",
         "handle": "agusdiuorno1 ",
+        "stars": 5
+      },
+      {
+        "quote": "Me encantó todo, las ideas, el estilo. Están teniendo muy buena llegada y subieron las estadísticas. Y esto de tener todo organizado es un golazo. Estoy súper contenta.",
+        "highlight": "subieron las estadísticas. Y esto de tener todo organizado es un golazo",
+        "badge": "📈 Más alcance y orden",
+        "name": "Nadia",
+        "handle": "peponas.ok",
         "stars": 5
       }
     ]
