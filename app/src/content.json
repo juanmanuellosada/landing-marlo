@@ -253,14 +253,6 @@
         "stars": 5
       },
       {
-        "quote": "Estoy feliz de haberme animado a delegar las redes. Al dejar todo en sus manos sentí un alivio inexplicable, hasta descubrí que tenía tiempo para mí. Pasamos de 2000 visualizaciones a 18 mil. Marlo es increíble, hace magia.",
-        "highlight": "Pasamos de 2000 visualizaciones a 18 mil",
-        "badge": "🚀 De 2.000 a 18.000 views",
-        "name": "Celeste · Queen Roots",
-        "handle": "",
-        "stars": 5
-      },
-      {
         "quote": "Empezar a gestionar redes con vos es un giro de 180 grados. La cuenta estaba estancada, sin estética, y le diste identidad a mi IG. Se nota que te gusta lo que hacés y lo hacés con pasión. Sos súper atenta, estás en todo.",
         "highlight": "un giro de 180 grados",
         "badge": "🎨 Le dio identidad a su IG",
@@ -282,14 +274,6 @@
         "badge": "💼 Nueva identidad profesional",
         "name": "Abogada Cipolla",
         "handle": "@abogadacipolla",
-        "stars": 5
-      },
-      {
-        "quote": "¡Me llegó todo! Genial Marlo, muchas gracias. Me re gustó todo, posta re contento con lo que hiciste.",
-        "highlight": "re contento con lo que hiciste",
-        "badge": "🙌 Cliente feliz",
-        "name": "Agustín Diuorno",
-        "handle": "@agustindiuorno1",
         "stars": 5
       },
       {
@@ -362,6 +346,22 @@
         "badge": "Un perfil mas ordenado 🚨",
         "name": "Milagros Casti - Nutricion ",
         "handle": "mcasti.nutricion",
+        "stars": 5
+      },
+      {
+        "quote": "Estoy feliz de haberme animado a delegar el calendario. Al dejar todo en sus manos sentí un alivio inexplicable, hasta descubrí que tenía tiempo para mí. Pasamos de 2000 visualizaciones a 18 mil. Marlo es increíble, hace magia.",
+        "highlight": "Al dejar todo en sus manos sentí un alivio inexplicable , Marlo es increíble, hace magia.",
+        "badge": "🚀 De 2.000 a 18.000 views",
+        "name": "Celeste ",
+        "handle": "Queen_roots",
+        "stars": 5
+      },
+      {
+        "quote": "¡Me llegó todo! Genial Marlo, muchas gracias. Me re gustó todo, posta re contento con lo que hiciste.",
+        "highlight": " Me re gustó todo, posta re contento con lo que hiciste.",
+        "badge": "Diseno de identidad visual 🫶🏽",
+        "name": "Agustin Diuorno  ",
+        "handle": "agusdiuorno1 ",
         "stars": 5
       }
     ]
