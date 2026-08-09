@@ -191,7 +191,7 @@
     "href": "https://marlocomunica.mitiendanube.com/ebooks/kits-freelancers/",
     "bgImage": "/images/cupon-bg.jpg",
     "popup": {
-      "enabled": true,
+      "enabled": false,
       "delayMs": 800
     }
   },
