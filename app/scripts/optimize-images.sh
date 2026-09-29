@@ -121,7 +121,7 @@ echo "=== 2. Proyectos logos ==="
 PDIR="${IMAGES_DIR}/proyectos"
 PORIG="${ORIGINALS_DIR}/proyectos"
 
-for n in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22; do
+for n in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25; do
   orig="${PDIR}/${n}.png"
   [[ -f "$orig" ]] || orig="${PORIG}/${n}.png"
   if [[ ! -f "$orig" ]]; then
