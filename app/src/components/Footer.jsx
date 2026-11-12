@@ -52,7 +52,7 @@ const Footer = () => {
               onClick={(e) => handleSectionClick(e, '#top')}
               className="inline-block hover:opacity-90 transition-opacity w-fit"
             >
-              <img src="/images/logo-marlo.webp" alt="marlo comunica" className="h-12 w-auto" />
+              <img src="/images/logo-marlo-nav.webp" alt="marlo comunica" className="h-12 w-auto" />
             </a>
             <div>
               <p className={COL_HEADING}>Seguinos</p>
