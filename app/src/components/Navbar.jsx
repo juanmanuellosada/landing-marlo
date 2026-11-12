@@ -104,7 +104,7 @@ const Navbar = () => {
           className="flex items-center hover:opacity-90 transition-opacity"
           onClick={(e) => handleSectionClick(e, '#top')}
         >
-          <img src="/images/logo-marlo.webp" alt="marlo comunica" className="h-10 w-auto" />
+          <img src="/images/logo-marlo-nav.webp" alt="marlo comunica" className="h-10 w-auto" />
         </a>
 
         {/* Desktop links — absolutely centered in the bar */}
